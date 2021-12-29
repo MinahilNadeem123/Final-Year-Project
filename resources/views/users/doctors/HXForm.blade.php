@@ -96,21 +96,25 @@
             <div class="col-md-2" style="width: 100px;">DM History</div>
             <textarea  class="form-control" placeholder=""></textarea>
             <span class="input-group-btn">
-                <button  type="submit" class="btn btn-success " style="width:100px"><a style="color:white" href="{{route('DMHistoryForm')}}">DM History Form</a></button>
+                <button  type="submit" class="btn btn-success " style="width:100px">
+                    <a style="color:white" href="{{route('DMHistoryForm')}}">DM History Form</a></button>
             </span>
         </div>
         <div class="input-group col-md-12">
             <div class="col-md-2" style="width: 100px;">HTN History</div>
             <textarea  class="form-control" placeholder=""></textarea>
             <span class="input-group-btn">
-              <button class="btn btn-success " style="width:100px">HTN History Form</button>
+              <button class="btn btn-success " style="width:100px">
+                  <a style="color:white" href="{{route('HTNHistoryForm')}}">HTN History Form</a></button>
+
             </span>
         </div>
         <div class="input-group col-md-12">
             <div class="col-md-2" style="width: 100px;">FEVER History</div>
             <textarea  class="form-control" placeholder=""></textarea>
             <span class="input-group-btn">
-              <button class="btn btn-success " style="width:100px">FEVER History Form</button>
+              <button class="btn btn-success " style="width:100px">
+                  <a style="color:white" href="{{route('FeverHistoryForm')}}">FEVER History Form</a></button>
             </span>
         </div>
         <div class="col-md-2">

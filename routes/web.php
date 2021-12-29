@@ -46,6 +46,8 @@ Route::view('GITExamForm','users/doctors/GITExamForm')->name('GITExamForm');
 Route::view('GCSSomiHigherFunctions','users/doctors/GCSSomiHigherFunctions')->name('GCSSomiHigherFunctions');
 Route::view('CranialPeripheralNerves','users/doctors/CranialPeripheralNerves')->name('CranialPeripheralNerves');
 Route::view('MotorSensoryCerebellum','users/doctors/MotorSensoryCerebellum')->name('MotorSensoryCerebellum');
+Route::view('HTNHistoryForm','users/doctors/HTNHistoryForm')->name('HTNHistoryForm');
+Route::view('FeverHistoryForm','users/doctors/FeverHistoryForm')->name('FeverHistoryForm');
 Route::view('treatmentProtocolForm','users/doctors/treatmentProtocolForm')->name('treatmentProtocolForm');
 Route::view('OrderLabs','users/doctors/orderLabs')->name('OrderLabs');
 Route::view('DMHistoryForm','users/doctors/DMHistoryForm')->name('DMHistoryForm');
