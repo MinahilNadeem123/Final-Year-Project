@@ -127,8 +127,40 @@ class User extends Authenticatable
     public function hasDepartment($departmentId){
         return in_array($departmentId,$this->departments->pluck('id')->toArray());
     }
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role_id');
-    }
+   public function CarnialPeripheralNervesExam(){
+        return $this->hasMany(CarnialPeripheralNervesExam::class);
+   }
+   public function cvsExam(){
+        return $this->hasMany(CvsExam::class);
+   }
+   public function dermaExam(){
+        return $this->hasMany(DermaExam::class);
+   }
+   public function dmHistory(){
+        return $this->hasMany(DmHistory::class);
+   }
+   public function examination(){
+        return $this->hasMany(Examination::class);
+   }
+   public function feverHistory(){
+        return $this->hasMany(FeverHistory::class);
+   }
+   public function gitExam(){
+        return $this->hasMany(GitExam::class);
+   }
+   public function higherMentalFunctions(){
+        return $this->hasMany(HigherMentalFunction::class);
+   }
+   public function history(){
+        return $this->hasMany(History::class);
+   }
+   public function ixSummary(){
+        return $this->hasMany(IxSummary::class);
+   }
+   public function motorSensoryCerebellum(){
+        return $this->hasMany(MotorSensoryCerebellum::class);
+   }
+   public function physicalExam(){
+        return $this->hasMany(PhysicalExam::class);
+   }
 }

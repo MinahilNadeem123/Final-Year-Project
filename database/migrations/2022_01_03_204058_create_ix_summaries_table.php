@@ -1,0 +1,157 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateIxSummariesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('ix_summaries', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('patient_id')->references('id')->on('users')
+                ->constrained();
+            $table->string('age');
+            $table->string('sex');
+            $table->string('weight');
+            $table->string('height')->nullable();
+            $table->string('bmi')->nullable();
+            $table->string('sbp')->nullable();
+            $table->string('dm');
+            $table->string('dm_value')->nullable();
+            $table->string('htn');
+            $table->string('rx_htn');
+            $table->string('ihd');
+            $table->string('smoker');
+            $table->string('smoker_value')->nullable();
+            $table->string('investigation');
+            $table->string('tlc')->nullable();
+            $table->string('neutrophils')->nullable();
+            $table->string('lymphocytes')->nullable();
+            $table->string('alc')->nullable();
+            $table->string('monocytes')->nullable();
+            $table->string('eosinophils')->nullable();
+            $table->string('rbc_count')->nullable();
+            $table->string('hb')->nullable();
+            $table->string('hct')->nullable();
+            $table->string('mcv')->nullable();
+            $table->string('mch')->nullable();
+            $table->string('mchc')->nullable();
+            $table->string('plt')->nullable();
+            $table->string('esr')->nullable();
+            $table->string('peripheral_smear')->nullable();
+            $table->string('reticulocyte_count')->nullable();
+            $table->string('bsf')->nullable();
+            $table->string('bsr')->nullable();
+            $table->string('hba1c')->nullable();
+            $table->string('urea')->nullable();
+            $table->string('cr')->nullable();
+            $table->string('egfr')->nullable();
+            $table->string('uric_acid')->nullable();
+            $table->string('na')->nullable();
+            $table->string('k')->nullable();
+            $table->string('cl')->nullable();
+            $table->string('ca')->nullable();
+            $table->string('po4')->nullable();
+            $table->string('mg')->nullable();
+            $table->string('hco3')->nullable();
+            $table->string('bilirubin')->nullable();
+            $table->string('alt')->nullable();
+            $table->string('ast')->nullable();
+            $table->string('alk')->nullable();
+            $table->string('protiens')->nullable();
+            $table->string('albumin')->nullable();
+            $table->string('globulins')->nullable();
+            $table->string('agratio')->nullable();
+            $table->string('amylase')->nullable();
+            $table->string('lipase')->nullable();
+            $table->string('cholestrol')->nullable();
+            $table->string('triglycerides')->nullable();
+            $table->string('ldl')->nullable();
+            $table->string('hdl')->nullable();
+            $table->string('vldl')->nullable();
+            $table->string('non_hdl')->nullable();
+            $table->string('tsh')->nullable();
+            $table->string('ft3')->nullable();
+            $table->string('ft4')->nullable();
+            $table->string('final_risk')->nullable();
+            $table->string('uacr')->nullable();
+            $table->string('protien_uria')->nullable();
+            $table->string('keton_uria')->nullable();
+            $table->string('pus_cells')->nullable();
+            $table->string('rbc')->nullable();
+            $table->string('blood')->nullable();
+            $table->string('hemoglobin_uria')->nullable();
+            $table->string('ecg')->nullable();
+            $table->string('echo')->nullable();
+            $table->string('xray')->nullable();
+            $table->string('ct')->nullable();
+            $table->string('usg')->nullable();
+            $table->string('others')->nullable();
+            $table->string('investigation1');
+            $table->text('investigation2');
+            $table->text('logage')->nullable();
+            $table->text('logage2')->nullable();
+            $table->text('logtchol')->nullable();
+            $table->text('loghdl')->nullable();
+            $table->text('logagehdl')->nullable();
+            $table->text('rx_htn_value')->nullable();
+            $table->text('no_rx_htn_value')->nullable();
+            $table->text('log_rx_bp')->nullable();
+            $table->text('log_no_rx_bp')->nullable();
+            $table->text('logage_log_rx_bp')->nullable();
+            $table->text('logage_log_no_rx_bp')->nullable();
+            $table->text('s0f')->nullable();
+            $table->text('mnxbf')->nullable();
+            $table->text('s0m')->nullable();
+            $table->text('mnxbm')->nullable();
+            $table->text('logage_dm')->nullable();
+            $table->text('logage_smoker')->nullable();
+            $table->text('gender_F')->nullable();
+            $table->text('predict_F')->nullable();
+            $table->text('cv_predict_F')->nullable();
+            $table->text('female_risk')->nullable();
+            $table->text('gender_M')->nullable();
+            $table->text('predict_M')->nullable();
+            $table->text('cv_predict_M')->nullable();
+            $table->text('male_risk')->nullable();
+            $table->text('aggregate_risk')->nullable();
+            $table->text('percentage_risk')->nullable();
+            $table->text('ascvd_risk')->nullable();
+            $table->text('ra_factor_ict')->nullable();
+            $table->text('raf_quantitative')->nullable();
+            $table->text('anti_ccp')->nullable();
+            $table->text('crp')->nullable();
+            $table->text('das28esr')->nullable();
+            $table->text('das28crp')->nullable();
+            $table->text('tjc')->nullable();
+            $table->text('sjc')->nullable();
+            $table->text('gh')->nullable();
+            $table->text('hbsag')->nullable();
+            $table->text('anti_hcv')->nullable();
+            $table->text('anti_hiv')->nullable();
+            $table->text('iron_deficit')->nullable();
+            $table->text('ldh')->nullable();
+            $table->text('ch_lung_disease')->nullable();
+            $table->text('hiv')->nullable();
+            $table->text('call_score')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('ix_summaries');
+    }
+}

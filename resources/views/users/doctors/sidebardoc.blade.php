@@ -32,12 +32,6 @@
                 </li>
 
                 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
-                    data-ktmenu-submenu-toggle="hover"><a href="{{route('departments.create')}}" class="kt-menu__link kt-menu__toggle"><i
-                            class="kt-menu__link-icon flaticon-layers"></i><span
-                            class="kt-menu__link-text"style="color:white">DX form</span></a>
-                </li>
-
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
                     data-ktmenu-submenu-toggle="hover"><a href="{{route('approachForm')}}" class="kt-menu__link kt-menu__toggle"><i
                             class="kt-menu__link-icon flaticon-layers"></i><span
                             class="kt-menu__link-text" style="color:white">Approach </span></a>

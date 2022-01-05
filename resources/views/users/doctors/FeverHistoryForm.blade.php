@@ -819,195 +819,271 @@
             <input  class="form-control" placeholder="">
         </div>
 
-        <div class="form-check col-6">
+        <div class="form-check col-3">
             <input class="form-check-input" type="checkbox" value="" id="OralUlcers">
             <label class="form-check-label" for="OralUlcers">
                 Oral Ulcers
             </label>
         </div>
 
-        <div class="form-check col-6">
+        <div class="form-check col-3">
             <input class="form-check-input" type="checkbox" value="" id="Alopecia">
             <label class="form-check-label" for="Alopecia">
                 Alopecia
             </label>
         </div>
 
-        <div class="form-check col-6">
+        <div class="form-check col-3">
             <input class="form-check-input" type="checkbox" value="" id="PhotoSesnitvity">
             <label class="form-check-label" for="PhotoSesnitvity">
                 Photo Sesnitvity
             </label>
         </div>
-
-        <h3 style="text-align: center;">11. Peripheral Arterial Disease</h3>
-
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="h/oclaudication">
-            <label class="form-check-label" for="h/oclaudication">
-                H/O Claudication
+            <input class="form-check-input" type="checkbox" value="" id="RashOnFace">
+            <label class="form-check-label" for="RashOnFace">
+                Rash On Face
             </label>
         </div>
 
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="h/ofingerdiscoloration">
-            <label class="form-check-label" for="h/ofingerdiscoloration">
-                H/O Finger Discoloration
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="h/otoesdiscoloration">
-            <label class="form-check-label" for="h/otoesdiscoloration">
-                H/O Toes Discoloration
-            </label>
-        </div>
-
-        <h3 style="text-align: center;">12. Amyotrphy</h3>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="thighpain">
-            <label class="form-check-label" for="thighpain">
-                Thigh Pain
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="bellspalsy">
-            <label class="form-check-label" for="bellspalsy">
-                Bells Palsy
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="wastingoflimb">
-            <label class="form-check-label" for="wastingoflimb">
-                Wasting Of Limb
-            </label>
-        </div>
-
-        <div class="input-group col-md-3">
-            <div  style="width: 100px;">Wasting Details</div>
+        <div class="input-group col-md-6">
+            <div  style="width: 100px;">Details</div>
             <input  class="form-control" placeholder="">
         </div>
 
-        <h3 style="text-align: center;">13. Diabetic Foot Disease</h3>
+        <select class="form-select col-md-6" aria-label="Default select example">
+            <option value="1">Malar Rash</option>
+            <option value="2">Discoid Rash</option>
+            <option value="3">Heliotrope Rash</option>
+        </select>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="h/ofootulcerinpast">
-            <label class="form-check-label" for="h/ofootulcerinpast">
-                H/O Foot Ulcer in Past
+            <input class="form-check-input" type="checkbox" value="" id="ProximalMyopathy">
+            <label class="form-check-label" for="ProximalMyopathy">
+                Proximal Myopathy
+            </label>
+        </div>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="RedOrPurpleSpots">
+            <label class="form-check-label" for="RedOrPurpleSpots">
+                Red Or Purple Spots
             </label>
         </div>
 
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="cantfeelshoes">
-            <label class="form-check-label" for="cantfeelshoes">
-                Can't Feel Shoes
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="cantfeelpressure">
-            <label class="form-check-label" for="cantfeelpressure">
-                Can't Feel Pressure
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="footshapechanged">
-            <label class="form-check-label" for="footshapechanged">
-                Foot Shape Changed
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="checksfeetdaily">
-            <label class="form-check-label" for="checksfeetdaily">
-                Checks Feet Daily
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="checkshoesbeforewearing">
-            <label class="form-check-label" for="checkshoesbeforewearing">
-                Check Shoes Before Wearing
-            </label>
-        </div>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="h/oamputationinpast">
-            <label class="form-check-label" for="h/oamputationinpast">
-                H/O Amputation in Past
-            </label>
-        </div>
-
-        <div class="input-group col-md-3">
-            <div  style="width: 100px;">Foot Other SX</div>
+        <div class="input-group col-md-6">
+            <div  style="width: 100px;">Details</div>
             <input  class="form-control" placeholder="">
         </div>
 
-        <h3 style="text-align: center;">14. Dermatologic Complication</h3>
+        <h3 style="text-align: center;">CVS</h3>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="recurrentboils">
-            <label class="form-check-label" for="recurrentboils">
-                Recurrent Boils
+            <input class="form-check-input" type="checkbox" value="" id="Syncope">
+            <label class="form-check-label" for="Syncope">
+                Syncope
+            </label>
+        </div>
+
+        <div class="input-group col-md-4">
+            <div  style="width: 100px;">Details</div>
+            <input  class="form-control" placeholder="">
+        </div>
+
+        <select class="form-select col-md-4" aria-label="Default select example">
+            <option value="1">At Rest</option>
+            <option value="2">During Activity</option>
+            <option value="3">Heliotrope Rash</option>
+        </select>
+&nbsp&nbsp&nbsp&nbsp
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="ChestPain">
+            <label class="form-check-label" for="ChestPain">
+                Chest Pain
             </label>
         </div>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="generalisedpruritis">
-            <label class="form-check-label" for="generalisedpruritis">
-                Genralised Pruritis
+            <input class="form-check-input" type="checkbox" value="" id="Dyspnoea">
+            <label class="form-check-label" for="Dyspnoea">
+                Dyspnoea
             </label>
         </div>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="vulvovaginalpruritis">
-            <label class="form-check-label" for="vulvoginalpruritis">
-                Vulvoginal Pruritis
+            <input class="form-check-input" type="checkbox" value="" id="Orthopnea">
+            <label class="form-check-label" for="Orthopnea">
+                Orthopnea
+            </label>
+        </div>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="PND">
+            <label class="form-check-label" for="PND">
+                PND
+            </label>
+        </div>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="Palpitations">
+            <label class="form-check-label" for="Palpitations">
+                Palpitations
+            </label>
+        </div>
+
+        <h3 style="text-align: center;">Past History</h3>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="DM">
+            <label class="form-check-label" for="DM">
+                DM
             </label>
         </div>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="balanoposthitis">
-            <label class="form-check-label" for="balanoposthitis">
-                Balanoposthitis
+            <input class="form-check-input" type="checkbox" value="" id="HTN">
+            <label class="form-check-label" for="HTN">
+                HTN
             </label>
         </div>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="currentskincomplication">
-            <label class="form-check-label" for="currentskincomplication">
-                Current Skin Complication
-            </label>
-        </div>
-
-        <h3 style="text-align: center;">15. Depression </h3>
-
-        <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="feelsdown">
-            <label class="form-check-label" for="feelsdown">
-                Feels Down
+            <input class="form-check-input" type="checkbox" value="" id="IHD">
+            <label class="form-check-label" for="IHD">
+                IHD
             </label>
         </div>
 
         <div class="form-check col-3">
-            <input class="form-check-input" type="checkbox" value="" id="lostinterestinthings">
-            <label class="form-check-label" for="lostinterestinthings">
-                Lost Interest in Things
+            <input class="form-check-input" type="checkbox" value="" id="TB">
+            <label class="form-check-label" for="TB">
+                TB
             </label>
         </div>
 
-        <h3 style="text-align: center;">16. Any Others </h3>
-
-        <div class="input-group col-md-3">
-            <textarea  class="form-control" placeholder=""></textarea>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="Asthma">
+            <label class="form-check-label" for="Asthma">
+                Asthma
+            </label>
         </div>
 
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="Hepatitis">
+            <label class="form-check-label" for="Hepatitis">
+                Hepatitis
+            </label>
+        </div>
+
+        <div class="input-group col-md-6">
+            <div  style="width: 100px;">Others</div>
+            <input  class="form-control" placeholder="">
+        </div>
+        <div class="input-group col-md-8">
+            <div  style="width: 100px;">Past Surgical HX</div>
+            <input  class="form-control" placeholder="">
+        </div>
+
+        <h3 style="text-align: center;">Family History</h3>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="Tuberculosis">
+            <label class="form-check-label" for="Tuberculosis">
+                Tuberculosis
+            </label>
+        </div>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="AnyFamilyMemberHasSimilarIllness">
+            <label class="form-check-label" for="AnyFamilyMemberHasSimilarIllness">
+                Any Family Member Has Similar Illness
+            </label>
+        </div>
+
+        <h3 style="text-align: center;">Personal History</h3>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="ActiveSmoker">
+            <label class="form-check-label" for="ActiveSmoker">
+                Active Smoker
+            </label>
+        </div>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="ExSmoker">
+            <label class="form-check-label" for="ExSmoker">
+                Ex Smoker
+            </label>
+        </div>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="Alcoholic">
+            <label class="form-check-label" for="Alcoholic">
+                Alcoholic
+            </label>
+        </div>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="IVDrugAbuser">
+            <label class="form-check-label" for="IVDrugAbuser">
+                IV Drug Abuser
+            </label>
+        </div>
+        <div class="input-group col-md-6">
+            <div  style="width: 100px;">Others</div>
+            <input  class="form-control" placeholder="">
+        </div>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="IllicitRelations">
+            <label class="form-check-label" for="IllicitRelations">
+                Illicit Relations
+            </label>
+        </div>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="Promiscuous">
+            <label class="form-check-label" for="Promiscuous">
+                Promiscuous
+            </label>
+        </div>
+
+        <h3 style="text-align: center;">Occupation Residence History </h3>
+
+        <div class="input-group col-md-8">
+            <div  style="width: 100px;">Job</div>
+            <input  class="form-control" placeholder="">
+        </div>
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="AnyColleagueHasSimilarIllness">
+            <label class="form-check-label" for="AnyColleagueHasSimilarIllness">
+                Any Colleague Has Similar Illness
+            </label>
+        </div>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="AnyPetsAnimalAtHome">
+            <label class="form-check-label" for="AnyPetsAnimalAtHome">
+                Any Pets Animal At Home
+            </label>
+        </div>
+
+        <div class="input-group col-md-6">
+            <div  style="width: 100px;">Detail</div>
+            <input  class="form-control" placeholder="">
+        </div>
+
+        <div class="form-check col-3">
+            <input class="form-check-input" type="checkbox" value="" id="AnyHealthConcernAtJob">
+            <label class="form-check-label" for="AnyHealthConcernAtJob">
+                Any Health Concern At Job
+            </label>
+        </div>
+
+        <h3 style="text-align: center;">Patient Concern </h3>
+
+        <div class="input-group col-md-6">
+            <div  style="width: 100px;">Concerns</div>
+            <input  class="form-control" placeholder="">
+        </div>
         <div class="input-group col-md-12">
-            <textarea style="height:300px" class="form-control" placeholder=""></textarea>
+            <div  style="width: 100px;">Summary</div>
+                <textarea style="height:300px" class="form-control" placeholder="" id="Summary"></textarea>
             <span class="input-group-btn">
               <button class="btn btn-success " style="height:300px;width:100px">Copy Summary</button>
             </span>

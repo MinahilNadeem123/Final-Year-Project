@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -37,6 +36,36 @@ class DatabaseSeeder extends Seeder
         factory(App\User::class, 50)->create()->each(function($a) {
             $a->departments()->attach(App\Department::all()->random(1));
         });
+        $this->call([
+            diagnosis::class
+        ]);
+        $this->call([
+            duration::class
+        ]);
+        $this->call([
+            followup_instruction::class
+        ]);
+        $this->call([
+            frequency::class
+        ]);
+        $this->call([
+            general_instruction::class
+        ]);
+        $this->call([
+            general_instruction_panel::class
+        ]);
+        $this->call([
+            investigations::class
+        ]);
+        $this->call([
+            purpose::class
+        ]);
+        $this->call([
+            risk_factors::class
+        ]);
+        $this->call([
+            specialInstruction::class
+        ]);
 
     }
 }

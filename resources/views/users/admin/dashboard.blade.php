@@ -41,25 +41,25 @@
             <a href="{{route('patients.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn  btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i  style="margin-top: 30px"  class="fa fa-procedures  fa-3x "></i><br><br><h4>Patient</h4></a>
             &nbsp &nbsp &nbsp
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn  btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('nurses.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn  btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i style="margin-top: 30px"  class="fa fa-user-nurse fa-3x  "></i><br><br><h4>Nurse</h4></a>
              &nbsp &nbsp &nbsp<br><br>
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('pharmacists.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i style="margin-top: 30px"  class="fa fa-prescription-bottle-alt fa-3x  "></i><br><br><h4>Pharmacy</h4></a>
             &nbsp &nbsp &nbsp
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('laboratorists.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i style="margin-top: 30px"  class="fa fa-vials fa-3x "></i><br><br><h4>Laboratorist</h4></a>
             &nbsp &nbsp &nbsp
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('accountants.create')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i style="margin-top: 30px"  class="far fa-money-bill-alt fa-3x "></i><br><br><h4>Accountant</h4></a>
             &nbsp &nbsp &nbsp<br><br>
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('appointments.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i style="margin-top: 30px"  class="fa fa-calendar-check fa-3x "></i><br><br><h4>Appointments</h4></a>
             &nbsp &nbsp &nbsp
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('payments.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i  style="margin-top: 30px" class="fa fa-credit-card fa-3x "></i><br><br><h4>Payment</h4></a>
             &nbsp &nbsp &nbsp
-            <a href="#" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
+            <a href="{{route('bedallotments.index')}}" style="height:125px; width:300px;background-color:rgb(231, 236, 236);color:black" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true" class="btn btn-info btn-lg btn-font-lg " role="button" aria-pressed="true">
                 <i style="margin-top: 30px"  class="fa fa-bed fa-3x "></i><br><br><h4>Bed Allotment</h4></a>
             &nbsp &nbsp &nbsp
         </div>

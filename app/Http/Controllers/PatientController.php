@@ -6,6 +6,7 @@ use App\Department;
 use App\Http\Requests\Patient\CreatePatientRequest;
 use App\Patient;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,23 @@ class PatientController extends Controller
     {
         return view('users.patients.create')->with('departments',Department::all());
     }
-
+//    function addPatient(Request $req ){
+//        $req->validate([
+//            'name' => 'required',
+//            'price' => 'required',
+//            'description'=> 'required',
+//            'category' => 'required',
+//            'color' => 'required'
+//        ]);
+//        $product = new Product();
+//        $product->name=$req->name;
+//        $product->price=$req->price;
+//        $product->description=$req->description;
+//        $product->category_id=$req->category;
+//        $product->color_id=$req->color;
+//        $product->save();
+//        return redirect('productList');
+//    }
     public function store(CreatePatientRequest $request)
     {
         $pic = $request->picture->store('patients_pictures');

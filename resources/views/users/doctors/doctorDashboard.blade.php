@@ -28,16 +28,16 @@
         <a href="{{route('examinationForm')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Examination Form</h4></a>
         &nbsp &nbsp &nbsp
-        <a href="#" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
+        <a href="{{route('DiagnosisForm')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Diagnosis Form</h4></a>
         &nbsp &nbsp &nbsp
         <a href="{{route('OrderLabs')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Order Labs Form</h4></a>
         &nbsp &nbsp &nbsp<br><br>
-        <a href="#" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
+        <a href="{{route('LabEntryForm')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Enter Labs Form</h4></a>
         &nbsp &nbsp &nbsp
-        <a href="#" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
+        <a href="{{route('OPDDrugsForm')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Drugs Form OPD</h4></a>
         &nbsp &nbsp &nbsp
         <a href="#" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
@@ -49,7 +49,7 @@
         <a href="{{route('nTodayRPT')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">N Today Report</h4></a>
         &nbsp &nbsp &nbsp
-        <a href="#" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
+        <a href="{{('FeverHistoryForm')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Fever History Form</h4></a>
 
 
