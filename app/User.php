@@ -2,14 +2,15 @@
 
 namespace App;
 
-use App\Role;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
+
 
     /**
      * The attributes that are mass assignable.
@@ -39,6 +40,8 @@ class User extends Authenticatable
     ];
 
     // Scopes
+
+
     public function scopeEmployee($query)
     {
         return $query->whereType('admin')->whereType('doctor')->whereType('patient');
@@ -127,40 +130,12 @@ class User extends Authenticatable
     public function hasDepartment($departmentId){
         return in_array($departmentId,$this->departments->pluck('id')->toArray());
     }
-   public function CarnialPeripheralNervesExam(){
-        return $this->hasMany(CarnialPeripheralNervesExam::class);
-   }
-   public function cvsExam(){
-        return $this->hasMany(CvsExam::class);
-   }
-   public function dermaExam(){
-        return $this->hasMany(DermaExam::class);
-   }
-   public function dmHistory(){
-        return $this->hasMany(DmHistory::class);
-   }
-   public function examination(){
-        return $this->hasMany(Examination::class);
-   }
-   public function feverHistory(){
-        return $this->hasMany(FeverHistory::class);
-   }
-   public function gitExam(){
-        return $this->hasMany(GitExam::class);
-   }
-   public function higherMentalFunctions(){
-        return $this->hasMany(HigherMentalFunction::class);
-   }
-   public function history(){
-        return $this->hasMany(History::class);
-   }
-   public function ixSummary(){
-        return $this->hasMany(IxSummary::class);
-   }
-   public function motorSensoryCerebellum(){
-        return $this->hasMany(MotorSensoryCerebellum::class);
-   }
-   public function physicalExam(){
-        return $this->hasMany(PhysicalExam::class);
-   }
+
+    public function patient(){
+        return $this->hasMany(Patient::class);
+    }
+    public function patientRecord(){
+        return $this->hasMany(Patient_record::class);
+    }
+
 }

@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet"
+    <link href="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
@@ -154,9 +154,9 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.js"
+    <script src="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.js')}}"
             type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js"
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js')}}"
             type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 

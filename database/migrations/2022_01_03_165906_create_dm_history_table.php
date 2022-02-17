@@ -15,7 +15,7 @@ class CreateDmHistoryTable extends Migration
     {
         Schema::create('dm_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->text('risk_factors');
             $table->text('newly_diagnosed');

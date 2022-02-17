@@ -15,7 +15,7 @@ class CreateCranialPeripheralNervesExamsTable extends Migration
     {
         Schema::create('cranial_peripheral_nerves_exams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('normal_smell_on_hx');
             $table->string('allergic_to_anything');

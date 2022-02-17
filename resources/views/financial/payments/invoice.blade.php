@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/css/demo3/pages/invoices/invoice-1.css" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('adminpanel/assets/css/demo3/pages/invoices/invoice-1.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
 

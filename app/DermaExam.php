@@ -8,6 +8,6 @@ class DermaExam extends Model
 {
 //    protected $table = 'derma_exams';
     public function patient(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Patient::class);
     }
 }

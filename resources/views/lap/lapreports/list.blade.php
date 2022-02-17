@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet"
+    <link href="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
 
 @endsection
@@ -79,7 +79,7 @@
                         @foreach($lapreports as $lapreport)
                             <tr>
                                 <td>{{$lapreport->patient->first_name}}</td>
-                                    
+
                                 <td>{{$lapreport->template->name}}</td>
                                 <td>{{$lapreport->date.'/'.$lapreport->time}}</td>
                                 <td>
@@ -121,8 +121,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.js"
+    <script src="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.js')}}"
             type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js"
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js')}}"
             type="text/javascript"></script>
 @endsection

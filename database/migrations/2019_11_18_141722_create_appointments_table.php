@@ -17,10 +17,8 @@ class CreateAppointmentsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('patient_id');
             $table->integer('doctor_id');
-            $table->integer('department_id');
             $table->date('date');
             $table->time('time');
-            $table->string('status');
             $table->string('notes')->nullable();
             $table->timestamps();
         });

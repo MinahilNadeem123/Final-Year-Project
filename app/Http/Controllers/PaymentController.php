@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Doctor;
 use App\Finance;
+use App\Http\Requests\UpdatePaymentRequest;
 use App\Patient;
 use App\Payment;
 use App\PaymentItem;
@@ -20,7 +21,7 @@ class PaymentController extends Controller
     public function create()
     {
         return view('financial.payments.create')
-            ->with('patients',User::patient()->get())
+            ->with('patients',Patient::all())
             ->with('doctors',User::doctor()->get())
             ->with('paymentitems',PaymentItem::all());
     }
@@ -93,6 +94,31 @@ class PaymentController extends Controller
         //session()->flash('success', 'New Payment Added Successfully.');
         // redirect user
         return view('financial.payments.invoice')->with('payment',$payment);
+    }
+//    public function edit(User $doctor,Patient $patient,PaymentItem $paymentItem)
+//    {
+//        return view('financial.payments.create')->with('doctor', $doctor)->with('paymentitems',$paymentItem)->with('patient',$patient);
+//    }
+//    public function update(UpdatePaymentRequest $request,Payment $payment)
+//    {
+//        $data = $request->only('patient_id','doctor_id','sub_total', 'taxes', 'total', 'amount_received', 'amount_to_pay', 'doctor_commission', );
+//
+//
+//        $payment->update($data);
+//        // flash message
+//        session()->flash('success', 'Doctor Info Updated Successfully.');
+//        // redirect user
+//        return redirect(route('doctors.index'));
+//    }
+
+    public function destroy(Payment $payment)
+    {
+
+        $payment->delete();
+        // flash message
+        session()->flash('success', 'Payment Deleted Successfully.');
+        // redirect user
+        return redirect(route('payments.index'));
     }
 
 }

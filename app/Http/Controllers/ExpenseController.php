@@ -38,5 +38,14 @@ class ExpenseController extends Controller
         // redirect user
         return redirect(route('expenses.index'));
     }
+    public function destroy(Expense $expense)
+    {
+
+        $expense->delete();
+        // flash message
+        session()->flash('success', 'Expense Deleted Successfully.');
+        // redirect user
+        return redirect(route('expenses.index'));
+    }
 
 }

@@ -17,7 +17,7 @@ class CreateDiagnosisTable extends Migration
             $table->id();
             $table->string('diagnosis_name');
             $table->longText('assessment')->nullable();
-            $table->longText('history&exam')->nullable();
+            $table->longText('historyexam')->nullable();
             $table->longText('examination')->nullable();
             $table->longText('investigations')->nullable();
             $table->longText('treatment')->nullable();

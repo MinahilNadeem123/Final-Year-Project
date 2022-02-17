@@ -22,16 +22,16 @@ class CreatePatientsRecordTable extends Migration
             $table->string('current_date');
             $table->string('date_of_visit');
             $table->string('patient_name');
-            $table->string('time_arrived');
+            $table->string('time_arrived')->nullable();
             $table->string('time_in_consultation');
-            $table->string('appointment_time');
-            $table->string('time_waited_in_clinic');
-            $table->string('appointment');
-            $table->string('appointment_no');
+            $table->string('appointment_time')->nullable();
+            $table->string('time_waited_in_clinic')->nullable();
+            $table->string('appointment')->nullable();
+            $table->string('appointment_no')->nullable();
             $table->string('age');
             $table->string('sex');
             $table->string('marital_status');
-            $table->string('education');
+            $table->string('education')->nullable();
             $table->string('profession');
             $table->string('mobile_no');
             $table->string('native_language')->nullable();
@@ -41,11 +41,7 @@ class CreatePatientsRecordTable extends Migration
             $table->string('pulse');
             $table->string('SBP');
             $table->string('DBP');
-            $table->string('BP1');
-            $table->string('BP2');
-            $table->string('RR');
             $table->string('temperature');
-            $table->string('SPO2');
             $table->string('weight');
             $table->string('height');
             $table->string('BMI');
@@ -71,6 +67,8 @@ class CreatePatientsRecordTable extends Migration
             $table->string('dx');
             $table->string('ix_advised');
             $table->string('general_instruction');
+            $table->string('gi1')->nullable();
+            $table->string('gi2')->nullable();
             $table->timestamps();
         });
     }

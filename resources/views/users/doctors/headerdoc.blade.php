@@ -1809,11 +1809,12 @@
             {{--                </div>--}}
             <!-- end: Header Menu -->        <!-- begin:: Header Topbar -->
                 <div  class="kt-header__topbar">
-                    <a href="logout" style="color:white;margin-left:1000px;margin-top:20px;size:50px">Logout</a>
+                    <a href="{{url('logout')}}" style="color:white;margin-left:1000px;margin-top:20px;size:50px">Logout</a>
                 </div>
                 <!-- end:: Header Topbar -->
             </div>
             <!-- end:: Header -->
+
 
 
 

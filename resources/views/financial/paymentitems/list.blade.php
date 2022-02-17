@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet"
+    <link href="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
 
 @endsection
@@ -18,7 +18,7 @@
 
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
 
-                    <span class="kt-subheader__desc">#Page-ID</span>
+                    <span class="kt-subheader__desc"></span>
 
                 </div>
             </div>
@@ -72,7 +72,7 @@
                             <th>Price</th>
                             <th>Doctor Commission</th>
                             <th>Quantity</th>
-                            <th>Action</th>
+{{--                            <th>Action</th>--}}
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -87,19 +87,15 @@
                                 <td>{{$paymentitem->commission}}</td>
                                 <td>{{$paymentitem->quantity}}</td>
 
-                                <td>
-                                     <span class="dropdown">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-                                       <i class="la la-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{route('paymentitems.edit',$paymentitem->id)}}"><i
-                                                class="fa fa-edit"></i>Edit Details</a>
-                                        <a href="{{route('paymentitems.show',$paymentitem->id)}}" class="dropdown-item"><i
-                                                class="la la-eye"></i>Display</a>
-                                    </div>
-                                     </span>
-                                </td>
+{{--                                <td>--}}
+
+{{--                                    <div >--}}
+{{--                                        <a class="dropdown-item" href="{{route('paymentitems.edit',$paymentitem->id)}}"><i--}}
+{{--                                                class="fa fa-edit"></i>Edit Details</a>--}}
+
+{{--                                    </div>--}}
+
+{{--                                </td>--}}
                                 <td>
                                     <form action="{{route('paymentitems.destroy',$paymentitem->id)}}" method="post">
                                         @method('DELETE')
@@ -126,8 +122,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.js"
+    <script src="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.js')}}"
             type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js"
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js')}}"
             type="text/javascript"></script>
 @endsection

@@ -8,6 +8,6 @@ class CarnialPeripheralNervesExam extends Model
 {
 //    protected $table = 'cranial_peripheral_nerves_exams';
     public function patient(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Patient::class);
     }
 }

@@ -15,7 +15,7 @@ class Payment extends Model
     }
 
     public function patient(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Patient::class);
     }
 
     public function doctor(){

@@ -15,7 +15,7 @@ class CreateGitExamsTable extends Migration
     {
         Schema::create('git_exams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('abdominal_exam_summary');
             $table->string('shape_of_abdomen');

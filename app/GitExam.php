@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class GitExam extends Model
 {
     public function patient(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Patient::class);
     }
 }

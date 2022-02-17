@@ -18,10 +18,10 @@ class CreateOpdDrugsTable extends Migration
             $table->string('short_name');
             $table->string('prescription_name');
             $table->string('generic');
-            $table->foreignId('frequency_id')->nullable()->constrained();
-            $table->foreignId('special_instruction_id')->nullable()->constrained();
-            $table->foreignId('duration_id')->nullable()->constrained();
-            $table->foreignId('purpose_id')->nullable()->constrained();
+            $table->string('frequency_id')->nullable();
+            $table->string('special_instruction_id')->nullable();
+            $table->string('duration_id')->nullable();
+            $table->string('purpose_id')->nullable();
             $table->string('notes')->nullable();
             $table->string('details')->nullable();
             $table->string('company');

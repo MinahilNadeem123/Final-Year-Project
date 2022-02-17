@@ -17,7 +17,7 @@
 
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
 
-                    <span class="kt-subheader__desc">#XRS-45670</span>
+                    <span class="kt-subheader__desc"></span>
 
                     <div class="kt-input-icon kt-input-icon--right kt-subheader__search kt-hidden">
                         <input type="text" class="form-control" placeholder="Search order..." id="generalSearch">
@@ -28,38 +28,33 @@
                 </div>
                 <div class="kt-subheader__toolbar">
                     <div class="kt-subheader__wrapper">
-                        <a href="#" class="btn kt-subheader__btn-secondary">Today</a>
 
-                        <a href="#" class="btn kt-subheader__btn-secondary">Month</a>
-
-                        <a href="#" class="btn kt-subheader__btn-secondary">Year</a>
-
-                        <a href="#" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker"
-                           data-toggle="kt-tooltip" title="Select dashboard daterange" data-placement="left">
-                            <span class="kt-subheader__btn-daterange-title" id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;
-                            <span class="kt-subheader__btn-daterange-date"
-                                  id="kt_dashboard_daterangepicker_date">Aug 16</span>
-                            <i class="flaticon2-calendar-1"></i>
-                        </a>
+{{--                        <a href="#" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker"--}}
+{{--                           data-toggle="kt-tooltip" title="Select dashboard daterange" data-placement="left">--}}
+{{--                            <span class="kt-subheader__btn-daterange-title" id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;--}}
+{{--                            <span class="kt-subheader__btn-daterange-date"--}}
+{{--                                  id="kt_dashboard_daterangepicker_date">Aug 16</span>--}}
+{{--                            <i class="flaticon2-calendar-1"></i>--}}
+{{--                        </a>--}}
 
                         <div class="dropdown dropdown-inline" data-toggle-="kt-tooltip" title="Quick actions"
                              data-placement="left">
-                            <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1"
-                                     class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
-                                        <path
-                                            d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
-                                            id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                        <path
-                                            d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z"
-                                            id="Combined-Shape" fill="#000000"/>
-                                    </g>
-                                </svg>                        <!--<i class="flaticon2-plus"></i>-->
-                            </a>
+{{--                            <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true"--}}
+{{--                               aria-expanded="false">--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1"--}}
+{{--                                     class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">--}}
+{{--                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                        <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>--}}
+{{--                                        <path--}}
+{{--                                            d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"--}}
+{{--                                            id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"/>--}}
+{{--                                        <path--}}
+{{--                                            d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z"--}}
+{{--                                            id="Combined-Shape" fill="#000000"/>--}}
+{{--                                    </g>--}}
+{{--                                </svg>                        <!--<i class="flaticon2-plus"></i>-->--}}
+{{--                            </a>--}}
                             <div class="dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right">
                                 <!--begin::Nav-->
                                 <ul class="kt-nav">
@@ -133,12 +128,12 @@
                               enctype="multipart/form-data">
                             <div class="kt-portlet__body">
                                 <div class="form-group form-group-last">
-                                    <div class="alert alert-secondary" role="alert">
-                                        <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
-                                        <div class="alert-text">
-                                            You Can Add New Doctor From This Form.
-                                        </div>
-                                    </div>
+{{--                                    <div class="alert alert-secondary" role="alert">--}}
+{{--                                        <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>--}}
+{{--                                        <div class="alert-text">--}}
+{{--                                            You Can Add New Doctor From This Form.--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                                 @csrf
                                 @if(isset($doctor))
@@ -148,7 +143,11 @@
                                     <label>Avatar</label>
                                     <div>
                                         <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_user_edit_avatar">
-                                            <div class="kt-avatar__holder" @if(isset($doctor)) @if(strpos($doctor->picture,'users_pictures')!==false) style="background-image: url({{asset('storage/'.$doctor->picture)}})" @else style="background-image: url({{$doctor->picture}})" @endif  @else style="background-image: url({{asset('storage/nopic.jpg')}});" @endif>
+                                            <div class="kt-avatar__holder"
+                                                 @if(isset($doctor))
+                                                 @if(strpos($doctor->picture,'users_pictures')!==false) style="background-image: url({{asset('storage/'.$doctor->picture)}})"
+                                                 @else style="background-image: url({{$doctor->picture}})" @endif
+                                                 @else style="background-image: url({{asset('storage/nopic.jpg')}});" @endif>
 
                                             </div>
                                             <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
@@ -161,6 +160,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if (count($errors) > 0)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                @foreach($errors->all() as $error)
+                                                    {{ $error }} <br>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label>First Name</label>
                                     <div class="input-group">
@@ -207,8 +218,16 @@
                                     <div class="form-group">
                                         <label>Password</label>
                                         <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></i></span></div>
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
                                             <input id="password" class="form-control" type="text" name="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                            <input id="password" class="form-control" type="text" name="password_confirmation">
                                         </div>
                                     </div>
                                 @endif
@@ -310,8 +329,8 @@
                                 </div>
                                 <div class="kt-portlet__foot">
                                     <div class="kt-form__actions">
-                                        <input type="submit" value="{{isset($doctor) ? 'Update' : 'Submit'}}"
-                                               class="btn-lg btn-primary">
+                                        <input type="button" value="{{isset($doctor) ? 'Update' : 'Submit'}}"
+                                               class="btn-lg btn-primary" onclick="cli()">
                                         <input type="reset" class="btn-lg btn-danger" value="Cancel">
                                     </div>
                                 </div>
@@ -330,15 +349,20 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/js/demo12/pages/custom/user/edit-user.js" type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{{asset('adminpanel/assets/js/demo12/pages/custom/user/edit-user.js')}}" type="text/javascript"></script>
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickrr"></script>
     <script>
         flatpickr('#date', {
             altInput: true,
             altFormat: "F j, Y",
             dateFormat: "Y-m-d",
         });
+    </script>
+    <script>
+        function cli(e){
+            e.preventDefault()
+        }
     </script>
 
 @endsection

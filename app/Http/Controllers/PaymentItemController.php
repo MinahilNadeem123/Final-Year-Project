@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PaymentItem;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -64,4 +65,15 @@ class PaymentItemController extends Controller
         // redirect user
         return redirect(route('paymentitems.index'));
     }
+    public function destroy(PaymentItem $payment)
+    {
+
+        $payment->delete();
+        // flash message
+        session()->flash('success', 'Payment Item Deleted Successfully.');
+        // redirect user
+        return redirect(route('paymentitems.index'));
+    }
+
+
 }

@@ -15,7 +15,7 @@ class CreateHigherMentalFunctionsTable extends Migration
     {
         Schema::create('higher_mental_functions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('consciousness');
             $table->string('gcs');

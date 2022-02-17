@@ -94,7 +94,8 @@
         </div>
         <div class="input-group col-md-12">
             <div class="col-md-2" style="width: 100px;">DM History</div>
-            <textarea  class="form-control" placeholder=""></textarea>
+            <textarea  class="form-control" placeholder="" ></textarea>
+
             <span class="input-group-btn">
                 <button  type="submit" class="btn btn-success " style="width:100px">
                     <a style="color:white" href="{{route('DMHistoryForm')}}">DM History Form</a></button>

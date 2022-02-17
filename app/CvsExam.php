@@ -8,6 +8,6 @@ class CvsExam extends Model
 {
 //    protected $table = 'cvs_exams';
     public function patient(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Patient::class);
     }
 }

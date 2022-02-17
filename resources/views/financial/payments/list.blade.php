@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet"
+    <link href="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
 
 @endsection
@@ -18,7 +18,7 @@
 
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
 
-                    <span class="kt-subheader__desc">#Page-ID</span>
+                    <span class="kt-subheader__desc"></span>
 
                 </div>
             </div>
@@ -73,7 +73,7 @@
                             <th>Total</th>
                             <th>Amount Received</th>
                             <th>Amount To Pay</th>
-                            <th>Actions</th>
+{{--                            <th>Actions</th>--}}
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -81,27 +81,27 @@
                         <tbody>
                         @foreach($payments as $payment)
                             <tr>
-                                <td>{{$payment->patient->first_name}}</td>
-                                <td>{{$payment->doctor->first_name}}</td>
+                                <td>{{$payment->patient['first_name']}}</td>
+                                <td>{{$payment->doctor['first_name']}}</td>
                                 <td>{{$payment->sub_total}}</td>
                                 <td>{{$payment->taxes}}</td>
                                 <td>{{$payment->total}}</td>
                                 <td>{{$payment->amount_received}}</td>
                                 <td>{{$payment->amount_to_pay}}</td>
 
-                                <td>
-                                     <span class="dropdown">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-                                       <i class="la la-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{route('payments.edit',$payment->id)}}"><i
-                                                class="fa fa-edit"></i>Edit Details</a>
-                                        <a href="{{route('payments.show',$payment->id)}}" class="dropdown-item"><i
-                                                class="la la-eye"></i>Display</a>
-                                    </div>
-                                     </span>
-                                </td>
+{{--                                <td>--}}
+{{--                                     <span class="dropdown">--}}
+{{--                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">--}}
+{{--                                       <i class="la la-ellipsis-h"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                                        <a class="dropdown-item" href="{{route('payments.edit',$payment->id)}}"><i--}}
+{{--                                                class="fa fa-edit"></i>Edit Details</a>--}}
+{{--                                        <a href="{{route('payments.show',$payment->id)}}" class="dropdown-item"><i--}}
+{{--                                                class="la la-eye"></i>Display</a>--}}
+{{--                                    </div>--}}
+{{--                                     </span>--}}
+{{--                                </td>--}}
                                 <td>
                                     <form action="{{route('payments.destroy',$payment->id)}}" method="post">
                                         @method('DELETE')
@@ -128,8 +128,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.js"
+    <script src="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.js')}}"
             type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js"
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js')}}"
             type="text/javascript"></script>
 @endsection

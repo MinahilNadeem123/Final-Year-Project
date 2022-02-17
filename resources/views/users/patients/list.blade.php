@@ -18,7 +18,7 @@
 
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
 
-                    <span class="kt-subheader__desc">#Page-ID</span>
+                    <span class="kt-subheader__desc"></span>
 
                 </div>
             </div>
@@ -95,21 +95,16 @@
                                 <td>
                                     @foreach($patient->departments as $de)
                                         <span
-                                            class="kt-badge kt-badge--brand kt-badge--inline kt-badge--pill">{{$de->name}}</span>
+                                            class="btn btn-dark">{{$de->name}}</span>
                                     @endforeach
                                 </td>
                                 <td>
-                                     <span class="dropdown">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-                                       <i class="la la-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
+
+                                    <div >
                                         <a class="dropdown-item" href="{{route('patients.edit',$patient->id)}}"><i
                                                 class="fa fa-edit"></i>Edit Details</a>
-                                        <a href="{{route('patients.show',$patient->id)}}" class="dropdown-item"><i
-                                                class="la la-eye"></i>Display</a>
                                     </div>
-                                     </span>
+
 
                                 </td>
                                 <td>

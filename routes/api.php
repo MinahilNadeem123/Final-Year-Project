@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::namespace('Api')->middleware('json.response')->group(function () {
+    Route::post('login', 'LoginController@login')->name('login');
+    Route::post('register', 'LoginController@register')->name('register');
+     Route::middleware('auth:api')->group(function () {
+         Route::post('addLabTest', 'LabController@addLabs')->name('addLabTest');
+         Route::post('addAppointment', 'AppointmentController@addAppointment')->name('addAppointment');
+         Route::get('getDoctor', 'DoctorController@getDoctor')->name('getDoctor');
+     });
 });
+//
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//
+//});

@@ -15,7 +15,7 @@ class CreateExaminationsTable extends Migration
     {
         Schema::create('examinations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('general_look');
             $table->string('vitals_details');

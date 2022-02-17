@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet"
+    <link href="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
 
 @endsection
@@ -18,7 +18,7 @@
 
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
 
-                    <span class="kt-subheader__desc">#Page-ID</span>
+                    <span class="kt-subheader__desc"></span>
 
                 </div>
             </div>
@@ -80,17 +80,16 @@
                                 <td>{{$bed->code}}</td>
                                 <td>{{$bed->notes}}</td>
                                 <td><span
-                                        class="kt-badge kt-badge--brand kt-badge--inline kt-badge--pill">{{$bed->status}}</span></td>
+                                        class="btn btn-dark">{{$bed->status}}</span></td>
                                 <td>
-                                     <span class="dropdown">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-                                       <i class="la la-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
+{{--                                     <span class="dropdown">--}}
+{{--                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">--}}
+{{--                                       <i class="la la-ellipsis-h"></i>--}}
+{{--                                    </a>--}}
+                                    <div>
                                         <a class="dropdown-item" href="{{route('beds.edit',$bed->id)}}"><i
                                                 class="fa fa-edit"></i>Edit Details</a>
-                                        <a href="{{route('beds.show',$bed->id)}}" class="dropdown-item"><i
-                                                class="la la-eye"></i>Display</a>
+
                                     </div>
                                      </span>
                                 </td>
@@ -120,8 +119,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.js"
+    <script src="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.js')}}"
             type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js"
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js')}}"
             type="text/javascript"></script>
 @endsection

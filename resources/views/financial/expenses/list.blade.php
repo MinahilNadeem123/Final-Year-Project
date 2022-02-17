@@ -1,6 +1,6 @@
 @extends('users.admin.layouts.master')
 @section('styles')
-    <link href="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet"
+    <link href="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
 
 @endsection
@@ -69,7 +69,7 @@
                             <th>Name</th>
                             <th>amount</th>
                             <th>note</th>
-                            <th>Actions</th>
+{{--                            <th>Actions</th>--}}
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -81,19 +81,19 @@
                                 <td>{{$expense->amount}}</td>
                                 <td>{{$expense->note}}</td>
 
-                                <td>
-                                     <span class="dropdown">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-                                       <i class="la la-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{route('expenses.edit',$expense->id)}}"><i
-                                                class="fa fa-edit"></i>Edit Details</a>
-                                        <a href="{{route('expenses.show',$expense->id)}}" class="dropdown-item"><i
-                                                class="la la-eye"></i>Display</a>
-                                    </div>
-                                     </span>
-                                </td>
+{{--                                <td>--}}
+{{--                                     <span class="dropdown">--}}
+{{--                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">--}}
+{{--                                       <i class="la la-ellipsis-h"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                                        <a class="dropdown-item" href="{{route('expenses.edit',$expense->id)}}"><i--}}
+{{--                                                class="fa fa-edit"></i>Edit Details</a>--}}
+{{--                                        <a href="{{route('expenses.show',$expense->id)}}" class="dropdown-item"><i--}}
+{{--                                                class="la la-eye"></i>Display</a>--}}
+{{--                                    </div>--}}
+{{--                                     </span>--}}
+{{--                                </td>--}}
                                 <td>
                                     <form action="{{route('expenses.destroy',$expense->id)}}" method="post">
                                         @method('DELETE')
@@ -120,8 +120,8 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('adminpanel')}}/assets/vendors/custom/datatables/datatables.bundle.js"
+    <script src="{{asset('adminpanel/assets/vendors/custom/datatables/datatables.bundle.js')}}"
             type="text/javascript"></script>
-    <script src="{{url('adminpanel')}}/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js"
+    <script src="{{asset('adminpanel/assets/js/demo3/pages/crud/datatables/advanced/multiple-controls.js')}}"
             type="text/javascript"></script>
 @endsection

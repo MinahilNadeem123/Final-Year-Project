@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OpdDrug extends Model
 {
-//    protected $table = 'opd_drugs';
+ protected $table = 'opd_drugs';
+ protected $fillable=['prescription_name','short_name','retail_price','generic','company'];
     public function frequency(){
         return $this->hasMany(Frequency::class);
     }

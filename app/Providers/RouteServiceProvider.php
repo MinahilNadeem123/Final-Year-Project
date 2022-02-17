@@ -70,7 +70,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/admin.php'));
     }
 
-    
+
 
     /**
      * Define the "api" routes for the application.
@@ -81,9 +81,23 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-            ->middleware('api')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
+        Route::group([
+            'middleware' => ['api', 'cors'],
+            'namespace' => $this->namespace,
+            'prefix' => 'api',
+        ], function ($router) {
+            //Add you routes here, for example:
+            Route::post('login', 'Api\LoginController@login')->name('login');
+            Route::post('register', 'Api\LoginController@register')->name('register');
+
+                Route::post('addLabTest', 'Api\LabController@addLabs')->name('addLabTest');
+                Route::post('addAppointment', 'Api\AppointmentController@addAppointment')->name('addAppointment');
+                Route::get('getDoctor', 'Api\DoctorController@getDoctor')->name('getDoctor');
+
+        });
+//        Route::prefix('api')
+//            ->middleware('api')
+//            ->namespace($this->namespace)
+//            ->group(base_path('routes/api.php'));
     }
 }

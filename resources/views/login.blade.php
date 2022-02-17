@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
     <title>Login Page</title>
     <!--Made with love by Mutiullah Samim -->
 
@@ -31,7 +33,7 @@
 
             </div>
             <div class="card-body">
-                <form data-toggle="validator" id="login" role="form" method="post" action="login1">
+                <form data-toggle="validator" id="login"  method="post" action="{{route('login1')}}">
                     @csrf
                     <div class="input-group form-group">
                         <div class="input-group-prepend">

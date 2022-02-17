@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Department;
-use App\Nurse;
+use App\Nursing_parameter;
+use App\Patient;
+use App\Patient_current_visit_detail;
+use App\Risk_factor;
 use App\User;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -13,10 +17,25 @@ class NurseController extends Controller
 {
     public function index()
     {
-        return view('users.nurses.list')->with('nurses', User::nurse()->get())->with('departments',Department::all());
+        return view('users.nurses.list')
+            ->with('nurses', User::nurse()->get())->with('departments',Department::all());
 
     }
 
+    public function nurseDashboard(){
+        return view('users.nurses.nurseDashboard');
+    }
+
+    public function nursingParameters(){
+        $date=Carbon::today()->format('y-m-d');
+        $data=Patient_current_visit_detail::with('patient')->where('current_visit_date',$date)->get();
+        return view('users.nurses.nursingParameters',['data'=>$data]);
+    }
+
+    public function riskFactorsList(){
+        $risk_factor=Risk_factor::all();
+        return view('users.nurses.riskFactors',['risk_factors'=>$risk_factor]);
+    }
 
     public function create()
     {
@@ -90,6 +109,59 @@ class NurseController extends Controller
         // redirect user
         return redirect(route('nurses.index'));
     }
+    public function addNursingParameters(Request $request){
+        $request->validate([
+            'cr_no'=>'required',
+            'pulse_rate' => 'required',
+            'systolic_bp_right_arm' => 'required',
+            'diastolic_bp_right_arm' => 'required',
+            'respiratory_rate'=> 'required',
+            'temperature'=> 'required',
+            'temperature_area'=> 'required',
+            'oxygen_saturation'=> 'required',
+            'gcs'=> 'required',
+            'weight'=> 'required',
+            'height'=> 'required',
+            'diagnosed_case_of'=> 'required',
+            'length'=> 'required',
+            'head_circumference'=> 'required',
+            'bmi_field'=> 'required',
+            'z_score_weight_for_length'=> 'required',
+            'z_score_infant_head_circumference_for_age'=> 'required',
+            'who_infant_head_circumference_for_age_percentile'=> 'required',
+
+        ]);
+
+        $nursing_parameter = new Nursing_parameter();
+        $data=Patient::where('cr_no',$request->cr_no)->get('id');
+        foreach ($data as $datum){
+            $nursing_parameter->patient_id=$datum->id;
+        }
+
+        $nursing_parameter->pulse_rate=$request->pulse_rate;
+        $nursing_parameter->systolic_bp_right_arm=$request->systolic_bp_right_arm;
+        $nursing_parameter->diastolic_bp_right_arm=$request->diastolic_bp_right_arm;
+        $nursing_parameter->respiratory_rate=$request->respiratory_rate;
+        $nursing_parameter->temperature=$request->temperature;
+        $nursing_parameter->temp_area=$request->temperature_area;
+        $nursing_parameter->oxygen_saturation=$request->oxygen_saturation;
+        $nursing_parameter->gcs=$request->gcs;
+        $nursing_parameter->diagnosed_case_of=$request->diagnosed_case_of;
+        $nursing_parameter->weight=$request->weight;
+        $nursing_parameter->height=$request->height;
+        $nursing_parameter->length=$request->length;
+        $nursing_parameter->head_circumference=$request->head_circumference;
+        $nursing_parameter->bmi=$request->bmi_field;
+        $nursing_parameter->z_score_weight_for_length=$request->z_score_weight_for_length;
+        $nursing_parameter->who_infant_weight_for_length_percentiles=$request->who_infant_weight_for_length;
+        $nursing_parameter->z_score_infant_head_circumference_for_age=$request->z_score_infant_head_circumference_for_age;
+        $nursing_parameter->who_infant_head_circumference_for_age_percentiles=$request->who_infant_head_circumference_for_age_percentile;
+        $nursing_parameter->save();
+        session()->flash('success', 'Data Inserted Successfully.');
+        return redirect(route('nurseDashboard'));
+
+    }
+
 
     public function destroy(User $nurse)
     {

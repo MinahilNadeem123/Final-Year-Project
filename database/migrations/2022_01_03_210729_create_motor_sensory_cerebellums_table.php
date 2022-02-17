@@ -15,7 +15,7 @@ class CreateMotorSensoryCerebellumsTable extends Migration
     {
         Schema::create('motor_sensory_cerebellums', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('motor_system_summary');
             $table->string('involuntary_movements_areas');

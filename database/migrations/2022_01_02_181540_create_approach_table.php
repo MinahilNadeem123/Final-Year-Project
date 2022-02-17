@@ -15,7 +15,7 @@ class CreateApproachTable extends Migration
     {
         Schema::create('approaches', function (Blueprint $table) {
             $table->id();
-            $table->string('Complaints/issues')->nullable();
+            $table->string('Complaints_issues');
             $table->string('Approach')->nullable();
             $table->string('Link1')->nullable();
             $table->string('Link2')->nullable();

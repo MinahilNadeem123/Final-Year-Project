@@ -15,7 +15,7 @@ class CreateCvsExamsTable extends Migration
     {
         Schema::create('cvs_exams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('shape_of_chest');
             $table->string('visible_apex_beat');

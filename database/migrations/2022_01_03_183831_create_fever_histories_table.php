@@ -15,7 +15,7 @@ class CreateFeverHistoriesTable extends Migration
     {
         Schema::create('fever_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->references('id')->on('users')
+            $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
             $table->string('duration');
             $table->string('duration_units');

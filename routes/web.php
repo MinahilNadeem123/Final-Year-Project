@@ -17,12 +17,58 @@ use Illuminate\Support\Facades\Route;
 //    return view('login');
 //})->name('admin-dashboard');
 
+// auth routes
+Route::get('logout','Auth\LoginController@logout')->name('logout');
+Route::get('/','Auth\LoginController@loginPage');
+
+
+//admin routes
+
 Route::get('admin', function () {
     return view('users.admin.dashboard');
 })->name('admin-dashboard');
-Route::get('logout','Auth\LoginController@logout');
-Route::get('/','Auth\LoginController@loginPage');
-Route::view('patientRecord','users/doctors/patientRecordForm')->name('patientRecord');
+
+Route::resource('/departments', 'DepartmentController');
+Route::get('/treatmenthistory/{doctor}', 'DoctorController@treatmentHistory')->name('treatment-history');
+Route::resource('/doctors', 'DoctorController');
+Route::resource('/nurses', 'NurseController');
+Route::resource('/accountants', 'AccountantController');
+Route::resource('/pharmacists', 'PharmacistController');
+Route::resource('/receptionists', 'ReceptionistController');
+Route::resource('/laboratorists', 'LaboratoristController');
+Route::get('/timeschedule/{doctor}', 'TimeScheduleController@timeSchedulesForDoctor')->name('doctor-time-schedules');
+Route::get('/timeschedule/{doctor}/create/', 'TimeScheduleController@createtimeScheduleForDoctor')->name('create-time-schedule-for-doctor');
+Route::resource('/timeschedules', 'TimeScheduleController');
+Route::resource('/casehistories', 'CaseHistoryController');
+Route::resource('/documents', 'DocumentController');
+Route::resource('/prescriptions', 'PrescriptionController');
+Route::resource('/medicines/categories', 'MedicineCategoryController', ['as' => 'medicines']);
+Route::resource('/medicines', 'MedicineController');
+Route::resource('/services', 'ServiceController');
+Route::resource('/beds', 'BedController');
+Route::resource('/lapreports', 'LapReportController');
+Route::resource('/laptemplates', 'LapTemplateController');
+Route::resource('/bedallotments', 'BedAllotmentController');
+Route::resource('/servicepackages', 'ServicePackageController');
+Route::resource('/dayoffschedules', 'DayoffScheduleController');
+Route::resource('/payments', 'PaymentController');
+Route::resource('/paymentitems', 'PaymentItemController');
+Route::resource('/expenses', 'ExpenseController');
+Route::get('/getdoctorsbydepartment/', 'AppointmentController@getDoctorsByDepartment')->name('get-doctors-by-department');
+Route::get('/gettimeschedulebydoctor/', 'DoctorController@getTimeScheduleByDoctor')->name('get-time-schedule-by-doctor');
+Route::get('/getdayoffschedulebydoctor/', 'DoctorController@getDayoffScheduleByDoctor')->name('get-dayoff-schedule-by-doctor');
+Route::get('/gettimebytimeschedule/', 'TimeScheduleController@getTimeByTimeSchedule')->name('get-time-by-time-schedule');
+Route::get('/getappointmentsbydate/', 'AppointmentController@getAppointmentsByDate')->name('get-appointments-by-date');
+Route::get('/getbedallotmentsbydate/', 'BedAllotmentController@getBedAllotmentsByDate')->name('get-bedallotments-by-date');
+Route::get('/gettemplatebyid/', 'LapReportController@getTemplateById')->name('get-template-by-id');
+Route::get('/getpaymentitembyitemid/', 'PaymentItemController@getPaymentItemByItemId')->name('get-payment-item-by-item-id');
+Route::get('/getpaymentitembydoctorid/', 'PaymentItemController@getPaymentItemByDoctorId')->name('get-payment-item-by-doctor_id');
+Route::get('/getuserbyusertype/', 'PublicController@getUserByUserType')->name('get-user-by-user-type');
+
+
+//doctor routes
+Route::get('check/printView/{id}','DoctorController@printView')->name('printView');
+Route::get('patientRecord','DoctorController@patientRecordForm')->name('patientRecord');
 Route::view('HXform','users/doctors/HXForm')->name('HXform');
 Route::view('previousVisits','users/doctors/previousVisits')->name('previousVisits');
 Route::view('nTodayRPT','users/doctors/nTodayRPT')->name('nTodayRPT');
@@ -48,52 +94,50 @@ Route::view('CranialPeripheralNerves','users/doctors/CranialPeripheralNerves')->
 Route::view('MotorSensoryCerebellum','users/doctors/MotorSensoryCerebellum')->name('MotorSensoryCerebellum');
 Route::view('HTNHistoryForm','users/doctors/HTNHistoryForm')->name('HTNHistoryForm');
 Route::view('FeverHistoryForm','users/doctors/FeverHistoryForm')->name('FeverHistoryForm');
-Route::view('OPDDrugsForm','users/pharmacists/OPDDrugsForm')->name('OPDDrugsForm');
-Route::view('DiagnosisForm','users/doctors/DiagnosisForm')->name('DiagnosisForm');
-Route::view('LabEntryForm','users/laboratorists/LabEntryForm')->name('LabEntryForm');
-Route::view('treatmentProtocolForm','users/doctors/treatmentProtocolForm')->name('treatmentProtocolForm');
+Route::post('dmHistoryForm','PatientController@dmHistoryForm')->name('dmHistoryForm');
+Route::get('DiagnosisForm','DoctorController@DiagnosisForm')->name('DiagnosisForm');
+Route::get('treatmentProtocolForm','DoctorController@treatmentProtocolForm')->name('treatmentProtocolForm');
+Route::post('insertProtocol','DoctorController@insertProtocol')->name('insertProtocol');
+Route::post('insertPatientRecord','DoctorController@insertPatientRecord')->name('insertPatientRecord');
+Route::get('DMHistoryForm','PatientController@getDmForm')->name('DMHistoryForm');
+Route::get('doctorDashboard','DoctorController@doctorDashboard')->name('doctorDashboard');
+Route::get('check/{id}','DoctorController@accessPatient')->name('check');
+Route::post('check','DoctorController@insertData')->name('check');
+Route::post('/login1','Auth\LoginController@login')->name('login1');
+Route::post('addApproach','ApproachesController@addApproach')->name('addApproach');
+Route::post('insertDiagnosis','DoctorController@insertDiagnosis')->name('insertDiagnosis');
+Route::get('getInvestigation/{id}','DoctorController@getInvestigation')->name('getInvestigation');
+Route::get('findInvestigations/{id}','DoctorController@findInvestigation')->name('findInvestigations');
+Route::get('findDrugs/{id}','DoctorController@findDrugs')->name('findDrugs');
+Route::get('findGeneralInstruction/{id}','DoctorController@findGeneralInstruction')->name('findGeneralInstruction');
+Route::get('findProtocols/{id}','DoctorController@findProtocols')->name('findProtocols');
+Route::get('findDiagnosis/{id}','DoctorController@findDiagnosis')->name('findDiagnosis');
+//receptionist routes
+Route::post('addPatient','PatientController@addPatient')->name('addPatient');
+Route::get('patientForm','ReceptionistController@patientForm')->name('patientForm');
+Route::get('receptionistDashboard','ReceptionistController@receptionDashboard')->name('receptionDashboard');
+Route::post('addAppointment','AppointmentController@addAppointment')->name('addAppointment');
+Route::get('deleteAppointment/{id}','AppointmentController@deleteAppointment')->name('deleteAppointment');
+Route::get('search_patient','ReceptionistController@search_patient')->name('search_patient');
+Route::get('viewAppointment','AppointmentController@viewAppointment')->name('viewAppointment');
+//Route::post('listAppointment','AppointmentController@listAppointment')->name('listAppointment');
+Route::resource('/appointments','AppointmentController');
+Route::get('updateAppointment/{id}','AppointmentController@accessAppointment')->name('accessAppointment');
+Route::post('updateAppointment','AppointmentController@updateAppointment')->name('updateAppointment');
+Route::get('RPatientsList','ReceptionistController@patientsList')->name('RPatientsList');
+Route::get('search_data','ReceptionistController@search_data')->name('search_data');
+Route::Post('searchAppointment','AppointmentController@searchAppointment')->name('searchAppointment');
+//nurseRoute
+Route::get('nursingParameters','NurseController@nursingParameters')->name('nursingParameters');
+Route::get('nurseDashboard','NurseController@nurseDashboard')->name('nurseDashboard');
+Route::post('addNursingParameters','NurseController@addNursingParameters')->name('addNursingParameters');
+Route::get('riskFactorsList','NurseController@riskFactorsList')->name('riskFactorsList');
+//labs routes
 Route::view('OrderLabs','users/doctors/orderLabs')->name('OrderLabs');
-Route::view('DMHistoryForm','users/doctors/DMHistoryForm')->name('DMHistoryForm');
-Route::view('doctorDashboard','users/doctors/doctorDashboard')->name('doctorDashboard');
-Route::view('receptionistDashboard','users/receptionists/receptionistDashboard');
-Route::post('/login1','Auth\LoginController@login');
-Route::resource('/departments', 'DepartmentController');
-Route::get('/treatmenthistory/{doctor}', 'DoctorController@treatmentHistory')->name('treatment-history');
-Route::resource('/doctors', 'DoctorController');
-Route::resource('/patients', 'PatientController');
-Route::resource('/nurses', 'NurseController');
-Route::resource('/accountants', 'AccountantController');
-Route::resource('/pharmacists', 'PharmacistController');
-Route::resource('/receptionists', 'ReceptionistController');
-Route::resource('/laboratorists', 'LaboratoristController');
-Route::get('/timeschedule/{doctor}', 'TimeScheduleController@timeSchedulesForDoctor')->name('doctor-time-schedules');
-Route::get('/timeschedule/{doctor}/create/', 'TimeScheduleController@createtimeScheduleForDoctor')->name('create-time-schedule-for-doctor');
-Route::resource('/timeschedules', 'TimeScheduleController');
-Route::resource('/casehistories', 'CaseHistoryController');
-Route::resource('/appointments', 'AppointmentController');
-Route::resource('/documents', 'DocumentController');
-Route::resource('/prescriptions', 'PrescriptionController');
-Route::resource('/medicines/categories', 'MedicineCategoryController', ['as' => 'medicines']);
-Route::resource('/medicines', 'MedicineController');
-Route::resource('/services', 'ServiceController');
-Route::resource('/beds', 'BedController');
-Route::resource('/lapreports', 'LapReportController');
-Route::resource('/laptemplates', 'LapTemplateController');
-Route::resource('/bedallotments', 'BedAllotmentController');
-Route::resource('/servicepackages', 'ServicePackageController');
-Route::resource('/dayoffschedules', 'DayoffScheduleController');
-Route::resource('/payments', 'PaymentController');
-Route::resource('/paymentitems', 'PaymentItemController');
-Route::resource('/expenses', 'ExpenseController');
+Route::view('LabEntryForm','users/laboratorists/LabEntryForm')->name('LabEntryForm');
 
-
-Route::get('/getdoctorsbydepartment/', 'AppointmentController@getDoctorsByDepartment')->name('get-doctors-by-department');
-Route::get('/gettimeschedulebydoctor/', 'DoctorController@getTimeScheduleByDoctor')->name('get-time-schedule-by-doctor');
-Route::get('/getdayoffschedulebydoctor/', 'DoctorController@getDayoffScheduleByDoctor')->name('get-dayoff-schedule-by-doctor');
-Route::get('/gettimebytimeschedule/', 'TimeScheduleController@getTimeByTimeSchedule')->name('get-time-by-time-schedule');
-Route::get('/getappointmentsbydate/', 'AppointmentController@getAppointmentsByDate')->name('get-appointments-by-date');
-Route::get('/getbedallotmentsbydate/', 'BedAllotmentController@getBedAllotmentsByDate')->name('get-bedallotments-by-date');
-Route::get('/gettemplatebyid/', 'LapReportController@getTemplateById')->name('get-template-by-id');
-Route::get('/getpaymentitembyitemid/', 'PaymentItemController@getPaymentItemByItemId')->name('get-payment-item-by-item-id');
-Route::get('/getpaymentitembydoctorid/', 'PaymentItemController@getPaymentItemByDoctorId')->name('get-payment-item-by-doctor_id');
-Route::get('/getuserbyusertype/', 'PublicController@getUserByUserType')->name('get-user-by-user-type');
+//medicine routes
+Route::get('OPDDrugsForm','MedicineController@OPDDrugsForm')->name('OPDDrugsForm');
+Route::get('IndoorDrugsForm','MedicineController@IndoorDrugsForm')->name('IndoorDrugsForm');
+Route::post('addIndoorDrugs','MedicineController@addIndoorDrugs')->name('addIndoorDrugs');
+Route::post('addDrugs','MedicineController@addDrugs')->name('addDrugs');

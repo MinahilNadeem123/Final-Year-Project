@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\Patient;
+use App\Patient_current_visit_detail;
 use App\Receptionist;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +18,16 @@ class ReceptionistController extends Controller
         return view('users.receptionists.list')->with('receptionists', User::receptionist()->get())->with('departments',Department::all());
 
     }
+    public function receptionDashboard(){
+        return view('users/receptionists/receptionistDashboard');
+    }
 
+    public function patientForm(){
+        $doctor=user::where('type','doctor')->get();
+        $patient=Patient::orderBy("cr_no", "desc")->first("cr_no");
+        $patient_cr=++$patient->cr_no ;
+        return view('users/receptionists/patientForm', ['doctors' => $doctor,'cr'=>$patient_cr]);
+    }
 
     public function create()
     {
@@ -102,4 +113,20 @@ class ReceptionistController extends Controller
         // redirect user
         return redirect(route('receptionists.index'));
     }
+    public function patientsList()
+    {
+        $data=Patient::get();
+        return view('users/receptionists/RPatientsList',['data'=>$data]);
+    }
+    public function search_patient()
+    {
+        $patient=Patient::all();
+        return response()->json($patient);
+    }
+    public function search_data()
+    {
+dd("abc");
+    }
+
+
 }
