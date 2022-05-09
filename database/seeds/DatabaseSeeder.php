@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         factory(App\DayoffSchedule::class, 10)->create();
         factory(App\Document::class, 10)->create();
         factory(App\Expense::class, 10)->create();
-        factory(App\LapReport::class, 10)->create();
         factory(App\LapTemplate::class, 10)->create();
         factory(App\MedicineCategory::class, 10)->create();
         factory(App\Medicine::class, 10)->create();
@@ -65,6 +64,9 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             specialInstruction::class
+        ]);
+        $this->call([
+            users::class
         ]);
 
     }

@@ -15,8 +15,8 @@ class IxOrders extends Migration
     {
         Schema::create('ix_orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained();
-            $table->foreignId('doctor_id')->constrained();
+            $table->foreignId('patient_id')->references('id')->on('users')->constrained();
+            $table->foreignId('doctor_id')->references('id')->on('users')->constrained();
             $table->string('cbc')->nullable();
             $table->string('hb')->nullable();
             $table->string('esr')->nullable();
