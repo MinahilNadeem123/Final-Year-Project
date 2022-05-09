@@ -15,7 +15,6 @@ class CreatePatientsRecordTable extends Migration
     {
         Schema::create('patient_records', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_no');
             $table->string('visit_no');
             $table->string('fee_charged');
             $table->string('MRN');
@@ -61,11 +60,10 @@ class CreatePatientsRecordTable extends Migration
             $table->string('risk_factors');
             $table->string('exam');
             $table->string('hx');
-            $table->string('planning');
             $table->string('case_summary')->nullable();
             $table->string('ix_done');
             $table->string('dx');
-            $table->string('ix_advised');
+            $table->longText('ix_advised');
             $table->string('general_instruction');
             $table->string('gi1')->nullable();
             $table->string('gi2')->nullable();

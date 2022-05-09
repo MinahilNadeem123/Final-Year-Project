@@ -73,8 +73,10 @@ class AppointmentController extends Controller
     public function create()
     {
         $doctor=User::where('type','doctor')->get();
+        $appointment=Appointment::where('date',Carbon::today())->count();
+        $appointment_no=$appointment + 1;
         $patient=Patient::get();
-        return view('users/receptionists/appointments/addAppointment',['doctors'=>$doctor,'patients'=>$patient]);
+        return view('users/receptionists/appointments/addAppointment',['doctors'=>$doctor,'patients'=>$patient,'appointment_no'=>$appointment_no]);
     }
 
     public function addAppointment(Request $request){
@@ -89,6 +91,7 @@ class AppointmentController extends Controller
 
         $appointment=new Appointment();
         $appointment->patient_id=$request->patient_id;
+        $appointment->appointment_no=$request->appointment_no;
         $appointment->doctor_id=$request->doctor_id;
         $appointment->date=$request->date;
         $appointment->time=$request->time;
@@ -97,7 +100,12 @@ class AppointmentController extends Controller
 
         return redirect(route('viewAppointment'));
     }
+public function findDoctorAppointments($id){
+    $p=Appointment::where('doctor_id',$id)->where('date',today())->count();
+    $count=$p+1;
 
+    return response()->json($count);
+}
     public function viewAppointment(){
         $data=Appointment::with('doctor','patient')->where('date',today())->get();
 
@@ -107,7 +115,8 @@ class AppointmentController extends Controller
     public function searchAppointment(Request $request){
         if($request->search == 'today')
         {
-            $data=Appointment::where('date',today())->get();
+            $data=Appointment::where('date', '=', date('y-m-d'))
+                ->get();
         }
         elseif ($request->search == 'all_appointments')
         {

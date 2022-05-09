@@ -33,9 +33,9 @@
         <a href="{{route('viewAppointment')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
             <h4 style="margin:40px">Appointment List</h4></a>
         &nbsp &nbsp &nbsp
-        <a href="{{route('nurseDashboard')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">
-            <h4 style="margin:40px">Nursing Parameters</h4></a>
-        &nbsp &nbsp &nbsp
+{{--        <a href="{{route('nurseDashboard')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">--}}
+{{--            <h4 style="margin:40px">Nursing Parameters</h4></a>--}}
+{{--        &nbsp &nbsp &nbsp--}}
 {{--        <a href="{{route('OrderLabs')}}" style="background-color:rgb(231, 236, 236);color:black;height:125px; width:300px;" class="btn  btn-lg btn-font-lg " role="button" aria-pressed="true">--}}
 {{--            <h4 style="margin:40px">Order Labs Form</h4></a>--}}
 {{--        &nbsp &nbsp &nbsp<br><br>--}}

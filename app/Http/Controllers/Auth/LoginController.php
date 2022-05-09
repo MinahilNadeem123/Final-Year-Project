@@ -38,6 +38,9 @@ class LoginController extends Controller
             else if(auth()->user()->type == "nurse"){
                 return redirect('nurseDashboard');
             }
+            else if(auth()->user()->type == "laboratorist"){
+                return redirect('laboratoristDashboard');
+            }
         }
         else{
             return redirect('/');

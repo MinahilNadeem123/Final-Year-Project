@@ -192,7 +192,7 @@
                                         class="kt-menu__ver-arrow la la-angle-right"></i></a>
                                 <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
-                                        <li class="kt-menu__item " aria-haspopup="true"><a href="{{route('nurses.create')}}"
+                                        <li class="kt-menu__item " aria-haspopup="true"><a href="{{route('laboratorists.create')}}"
                                                                                            class="kt-menu__link "><i
                                                     class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span
                                                     class="kt-menu__link-text" style="color:white">Add Laboratorist</span><span

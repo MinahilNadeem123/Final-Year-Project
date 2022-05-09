@@ -23,6 +23,11 @@
             </div>
         </div>
     @endif
+    @if(session()->has('error'))
+        <div class="alert alert-danger">
+            <p>{{session()->get('error')}}</p>
+        </div>
+    @endif
     <form class="row g-3 needs-validation container" autocomplete="off"  style="padding:50px" action="{{route('addNursingParameters')}}" method="post" novalidate>
         @csrf
 
@@ -144,6 +149,10 @@
             <label for="who_infant_head_circumference_for_age_percentile" class="form-label">WHO Infant Head Circumference for Age Percentile</label>
             <input type="text" name="who_infant_head_circumference_for_age_percentile"  class="form-control" id="who_infant_head_circumference_for_age_percentile">
             <span class="text-danger">@error('who_infant_head_circumference_for_age_percentile'){{ $message }}@enderror</span>
+        </div>
+        <div class="col-md-6">
+            <input type="checkbox" class="form-check-input" name="vitalsAdd" id="vitalsAdded" value="yes" >
+            <label for="vitalsAdded" class="form-label">Vitals Added</label>
         </div>
 
         <div class="col-12 mb-5 mx-lg-auto" style="align-self: center;">

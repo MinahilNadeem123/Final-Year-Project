@@ -25,12 +25,7 @@ class CreatePatientsTable extends Migration
             $table->string('age');
             $table->string('gender');
             $table->string('marital_status');
-            $table->string('address_country');
-            $table->string('address_province');
-            $table->string('address_district');
-            $table->string('address_tehsil');
             $table->string('address_detail');
-            $table->string('final_address');
             $table->string('mobile_no_1');
             $table->string('mobile_no_2')->nullable();
             $table->string('mobile_no_3')->nullable();

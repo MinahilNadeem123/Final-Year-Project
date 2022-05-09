@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -90,9 +91,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::post('login', 'Api\LoginController@login')->name('login');
             Route::post('register', 'Api\LoginController@register')->name('register');
 
-                Route::post('addLabTest', 'Api\LabController@addLabs')->name('addLabTest');
+                Route::get('getLabTest', 'Api\LabController@getLabs')->name('getLabTest');
+                Route::get('getDepartment', 'Api\DoctorController@getDepartment')->name('getDepartment');
                 Route::post('addAppointment', 'Api\AppointmentController@addAppointment')->name('addAppointment');
                 Route::get('getDoctor', 'Api\DoctorController@getDoctor')->name('getDoctor');
+                Route::get('getMrn', 'Api\PatientController@getMrn')->name('getMrn');
+                Route::post('getDepartmentDoctor', 'Api\DoctorController@getDepartmentDoctor')->name('getDepartmentDoctor');
+                Route::get('getReports', 'Api\LabController@getReports')->name('getReports');
+
 
         });
 //        Route::prefix('api')

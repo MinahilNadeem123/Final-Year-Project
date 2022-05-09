@@ -39,6 +39,12 @@
                             <p>{{session()->get('error2')}}</p>
                         </div>
                     @endif
+
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <p>{{session()->get('error')}}</p>
+                            </div>
+                        @endif
                     <div class="table-responsive">
                         @if(session()->has('success'))
                             <div class="alert alert-light alert-elevate" role="alert">
@@ -59,12 +65,7 @@
                                 <th style="width:100px">Date Of Birth</th>
                                 <th style="width:100px">Age</th>
                                 <th style="width:100px">Marital Status</th>
-                                <th style="width:100px">Address Country</th>
-                                <th style="width:100px">Address Province</th>
-                                <th style="width:100px">Address District</th>
-                                <th style="width:100px">Address Tehsil</th>
                                 <th style="width:100px">Address Detail</th>
-                                <th style="width:100px">Address Final</th>
                                 <th style="width:90px">Mobile No 1</th>
                                 <th style="width:100px">Mobile No 2</th>
                                 <th style="width:100px">Mobile No 3</th>
@@ -91,12 +92,7 @@
                                     <td>{{$datum['birth_date']}}</td>
                                     <td>{{$datum['age']}}</td>
                                     <td>{{$datum['marital_status']}}</td>
-                                    <td>{{$datum['address_country']}}</td>
-                                    <td>{{$datum['address_province']}}</td>
-                                    <td>{{$datum['address_district']}}</td>
-                                    <td>{{$datum['address_tehsil']}}</td>
                                     <td>{{$datum['address_detail']}}</td>
-                                    <td>{{$datum['final_address']}}</td>
                                     <td>{{$datum['mobile_no_1']}}</td>
                                     <td>{{$datum['mobile_no_2']}}</td>
                                     <td>{{$datum['mobile_no_3']}}</td>
@@ -107,8 +103,8 @@
                                     <td>{{$datum['professional_address']}}</td>
                                     <td>{{$datum['native_language']}}</td>
                                     <td>
-                                        <a href="{{"deleteProduct/".$datum['id']}}" style="float:left" class="btn btn-primary btn-sm-sh">Edit</a><br>
-                                        <a href="" style="float:right"  class="btn btn-primary btn-sm-sh">Delete</a>
+                                        <a href="{{"updatePatient/".$datum['id']}}" style="float:left" class="btn btn-primary btn-sm-sh">Edit</a><br>
+                                        <a href="{{"deletePatient/".$datum['id']}}" style="float:right"  class="btn btn-primary btn-sm-sh">Delete</a>
                                     </td>
 
                                 </tr>

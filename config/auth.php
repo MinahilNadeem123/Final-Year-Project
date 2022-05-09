@@ -17,6 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'patient' => [
+        'driver' => 'eloquent',
+        'model' => App\Patient::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -44,6 +48,10 @@ return [
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',
+        ],
+        'patient' => [
+            'driver' => 'session',
+            'provider' => 'patient',
         ],
     ],
 

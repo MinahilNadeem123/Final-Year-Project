@@ -18,9 +18,13 @@ Route::namespace('Api')->middleware('json.response')->group(function () {
     Route::post('login', 'LoginController@login')->name('login');
     Route::post('register', 'LoginController@register')->name('register');
      Route::middleware('auth:api')->group(function () {
-         Route::post('addLabTest', 'LabController@addLabs')->name('addLabTest');
+         Route::get('getLabTest', 'LabController@getLabs')->name('getLabTest');
          Route::post('addAppointment', 'AppointmentController@addAppointment')->name('addAppointment');
          Route::get('getDoctor', 'DoctorController@getDoctor')->name('getDoctor');
+         Route::post('getDepartmentDoctor', 'DoctorController@getDepartmentDoctor')->name('getDepartmentDoctor');
+         Route::get('getDepartment', 'DoctorController@getDepartment')->name('getDepartment');
+         Route::get('getMrn', 'PatientController@getMrn')->name('getMrn');
+         Route::get('getReports', 'LabController@getReports')->name('getReports');
      });
 });
 //

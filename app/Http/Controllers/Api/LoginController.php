@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Patient;
 use App\User;
 
 use Illuminate\Http\Request;
@@ -50,11 +51,14 @@ class LoginController extends Controller
                 $token = $user->createToken('token')->accessToken;
                 return response()->json(['status' => 1, 'message' => "Login Successfully as Nurse",'token'=>$token]);
             }
-            else if(auth()->user()->type=="patient"){
+            else if(auth()->user()->type == "patient"){
                 $user = Auth::user();
                 $token = $user->createToken('token')->accessToken;
+
                 return response()->json(['status' => 1, 'message' => "Login Successfully as Patient",'token'=>$token]);
+
             }
+
 
         }
         else{
@@ -68,6 +72,7 @@ class LoginController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'password_confirmation' => 'required_with:password|same:password',
+            'national_id'=>'required',
             'type' => 'required'
         ]);
         if ($validator->fails()) {
@@ -88,6 +93,7 @@ class LoginController extends Controller
             'first_name' => $user->first_name,
             'email' => $user->email,
             'password' => $user->password,
+            'national_id' => $user->national_id,
             'type' => 'patient',
         ];
 

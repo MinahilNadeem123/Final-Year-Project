@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\Doctor_dashboard;
+use App\Nurse_patient;
 use App\Nursing_parameter;
 use App\Patient;
 use App\Patient_current_visit_detail;
@@ -22,13 +24,35 @@ class NurseController extends Controller
 
     }
 
+    public function addRiskFactors(){
+        return view('users.nurses.addRiskFactors');
+    }
+
+    public function insert_risk_factor(Request $request){
+        $request->validate([
+            'risk_factor'=>'required',
+        ]);
+
+        $riskFactors = new Risk_factor();
+
+        $riskFactors->risk_factors=$request->risk_factor;
+        $riskFactors->save();
+
+            session()->flash('success', 'Data Inserted Successfully.');
+            return redirect(route('riskFactorsList'));
+
+
+    }
+
     public function nurseDashboard(){
         return view('users.nurses.nurseDashboard');
     }
 
     public function nursingParameters(){
-        $date=Carbon::today()->format('y-m-d');
-        $data=Patient_current_visit_detail::with('patient')->where('current_visit_date',$date)->get();
+
+        $data=Nurse_patient::with('patient')->where('created_at', '>=', date('y-m-d').' 00:00:00')->get()->unique('patient_id');
+
+
         return view('users.nurses.nursingParameters',['data'=>$data]);
     }
 
@@ -133,11 +157,8 @@ class NurseController extends Controller
         ]);
 
         $nursing_parameter = new Nursing_parameter();
-        $data=Patient::where('cr_no',$request->cr_no)->get('id');
-        foreach ($data as $datum){
-            $nursing_parameter->patient_id=$datum->id;
-        }
-
+        $data=Patient::where('cr_no',$request->cr_no)->first('id');
+            $nursing_parameter->patient_id=$data->id;
         $nursing_parameter->pulse_rate=$request->pulse_rate;
         $nursing_parameter->systolic_bp_right_arm=$request->systolic_bp_right_arm;
         $nursing_parameter->diastolic_bp_right_arm=$request->diastolic_bp_right_arm;
@@ -156,9 +177,23 @@ class NurseController extends Controller
         $nursing_parameter->who_infant_weight_for_length_percentiles=$request->who_infant_weight_for_length;
         $nursing_parameter->z_score_infant_head_circumference_for_age=$request->z_score_infant_head_circumference_for_age;
         $nursing_parameter->who_infant_head_circumference_for_age_percentiles=$request->who_infant_head_circumference_for_age_percentile;
-        $nursing_parameter->save();
-        session()->flash('success', 'Data Inserted Successfully.');
-        return redirect(route('nurseDashboard'));
+        if($request->vitalsAdd == 'yes'){
+           $cvd=Patient_current_visit_detail::where('patient_id',$data->id)->where('current_visit_date',Carbon::today()->format('y-m-d'))->get();
+          foreach ($cvd as $cv) {
+              $docdash = new Doctor_dashboard();
+              $docdash->doctor_id = $cv->doctor_id;
+              $docdash->patient_id = $cv->patient_id;
+              $nursing_parameter->save();
+              $docdash->save();
+              Nurse_patient::where('patient_id', $cv->patient_id)->delete();
+          }
+            session()->flash('success', 'Data Inserted Successfully.');
+            return redirect(route('nursingParameters'));
+        }
+        else{
+            session()->flash('error', 'Data Not Inserted.');
+            return redirect(route('nursingParameters'));
+        }
 
     }
 

@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Department;
 use App\Http\Requests\Patient\CreatePatientRequest;
+use App\Nurse_dashboard;
+use App\Nurse_patient;
 use App\OpdDrug;
 use App\Patient;
 use App\Patient_current_visit_detail;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,129 +37,119 @@ class PatientController extends Controller
     }
     function addPatient(Request $request ){
 
+        try {
+        if(Patient::where('cr_no', $request->cr_no )->exists()) {
 
-        if(\App\Patient::where('national_id', $request->national_id )->exists())
-        {
-            $request->validate([
-                'current_visit'=> 'required',
-                'doctor_id'=>'required',
-                'patient_no'=>'required',
-                'current_visit_date'=> 'required',
-                'patient_visit_no'=> 'required',
-                'patient_current_visit_category'=> 'required',
-                'patient_current_visit'=> 'required',
-                'fee_charged'=> 'required',
-                'current_visit_note'=> 'required',
-            ]);
-            $currentVisit=new Patient_current_visit_detail();
-            $id=Patient::where('national_id', $request->national_id )->get('id');
-            foreach ($id as $item)
-            {
-            $currentVisit->patient_id=$item->id;
+
+                $request->validate([
+                    'current_visit' => 'required',
+                    'doctor_id' => 'required',
+                    'current_visit_date' => 'required',
+                    'patient_visit_no' => 'required',
+                    'fee_charged' => 'required',
+                    'current_visit_note' => 'required',
+                ]);
+                $currentVisit = new Patient_current_visit_detail();
+                $id = Patient::where('national_id', $request->national_id)->first('id');
+
+                $currentVisit->patient_id = $id->id;
+
+                $currentVisit->current_visit = $request->current_visit;
+                $currentVisit->current_visit_date = $request->current_visit_date;
+                $currentVisit->doctor_id = $request->doctor_id;
+                $currentVisit->patient_visit_no = $request->patient_visit_no;
+                $currentVisit->patient_visit_no_with_this_consultant = $request->patient_visit_no;
+                $currentVisit->fee_charged = $request->fee_charged;
+                $currentVisit->appointment_number = $request->appointment_number;
+                $currentVisit->current_visit_note = $request->current_visit_note;
+                $currentVisit->referred = $request->referred;
+                $currentVisit->save();
+
+                $cvid = Patient_current_visit_detail::where('patient_id', $id->id)->where('current_visit_date', Carbon::today()->format('y-m-d'))->first();
+                $nur = new Nurse_patient();
+                $nur->patient_id = $id->id;
+                $nur->current_visit_id = $cvid->id;
+                $nur->save();
+            session()->flash('success', 'Data Inserted Successfully.');
+            return redirect(route('RPatientsList'));
+
             }
-            $currentVisit->current_visit=$request->current_visit;
-            $currentVisit->patient_no=$request->patient_no;
-            $currentVisit->current_visit_date=$request->current_visit_date;
-            $currentVisit->doctor_id=$request->doctor_id;
-            $currentVisit->patient_visit_no=$request->patient_visit_no;
-            $currentVisit->patient_current_visit_category=$request->patient_current_visit_category;
-            $currentVisit->patient_visit_no_with_this_consultant=$request->patient_visit_no;
-            $currentVisit->patient_current_visit=$request->patient_current_visit;
-            $currentVisit->current_visit_detail=$request->current_visit_detail;
-            $currentVisit->fee_charged=$request->fee_charged;
-            $currentVisit->appointment_number=$request->appointment_number;
-            $currentVisit->current_visit_note=$request->current_visit_note;
-            $currentVisit->referred=$request->referred;
-            $currentVisit->save();
-
-        }
         else{
-            $request->validate([
-                'cr_no'=>'required',
-                'first_name' => 'required',
-//                'last_name' => 'required',
-                'national_id' => 'required',
-                'birth_date'=> 'required',
-//                'date_of_registration'=> 'required',
-//                'time_of_registration'=> 'required',
-                'age'=> 'required',
-                'gender'=> 'required',
-                'marital_status'=> 'required',
-                'address_country'=> 'required',
-                'address_province'=> 'required',
-                'address_district'=> 'required',
-                'address_tehsil'=> 'required',
-                'address_detail'=> 'required',
-                'final_address'=> 'required',
-                'mobile_no_1'=> 'required',
-                'whatsapp_number'=> 'required',
-                'profession'=> 'required',
-                'professional_designation'=> 'required',
-                'professional_address'=> 'required',
-                'native_language'=> 'required',
-                'current_visit'=> 'required',
-                'doctor_id'=>'required',
-                'patient_no'=>'required',
-                'current_visit_date'=> 'required',
-                'patient_visit_no'=> 'required',
-                'patient_current_visit'=> 'required',
-                'patient_current_visit_category'=> 'required',
-                'fee_charged'=> 'required',
-                'current_visit_note'=> 'required',
-            ]);
+                $request->validate([
+                    'cr_no' => 'required',
+                    'first_name' => 'required',
+                    'national_id' => 'required',
+                    'birth_date' => 'required',
+                    'age' => 'required',
+                    'gender' => 'required',
+                    'marital_status' => 'required',
+                    'address_detail' => 'required',
+                    'mobile_no_1' => 'required',
+                    'whatsapp_number' => 'required',
+                    'profession' => 'required',
+                    'professional_designation' => 'required',
+                    'professional_address' => 'required',
+                    'native_language' => 'required',
+                    'current_visit' => 'required',
+                    'doctor_id' => 'required',
+                    'current_visit_date' => 'required',
+                    'patient_visit_no' => 'required',
+                    'fee_charged' => 'required',
+                    'current_visit_note' => 'required',
+                ]);
 
-            $patient = new Patient();
-            $patient->cr_no=$request->cr_no;
-//            $patient->date_of_registration=$request->date_of_registration;
-//            $patient->time_of_registration=$request->time_of_registration;
-            $patient->first_name=$request->first_name;
-//            $patient->last_name=$request->last_name;
-            $patient->national_id=$request->national_id;
-            $patient->email=$request->email;
-            $patient->profession=$request->profession;
-            $patient->professional_designation=$request->professional_designation;
-            $patient->professional_address=$request->professional_address;
-            $patient->native_language=$request->native_language;
-            $patient->address_country=$request->address_country;
-            $patient->address_province=$request->address_province;
-            $patient->address_district=$request->address_district;
-            $patient->address_tehsil=$request->address_tehsil;
-            $patient->address_detail=$request->address_detail;
-            $patient->final_address=$request->final_address;
-            $patient->birth_date=$request->birth_date;
-            $patient->age=$request->age;
-            $patient->gender=$request->gender;
-            $patient->marital_status=$request->marital_status;
-            $patient->mobile_no_1=$request->mobile_no_1;
-            $patient->mobile_no_2=$request->mobile_no_2;
-            $patient->whatsapp_number=$request->whatsapp_number;
-            $patient->mobile_no_3=$request->mobile_no_3;
-            $patient->save();
-            $currentVisit=new Patient_current_visit_detail();
-            $id=Patient::where('cr_no', $request->cr_no )->get('id');
-            foreach ($id as $item)
-            {
+                $patient = new Patient();
+                $patient->cr_no = $request->cr_no;
+                $patient->first_name = $request->first_name;
+                $patient->national_id = $request->national_id;
+                $patient->email = $request->email;
+                $patient->profession = $request->profession;
+                $patient->professional_designation = $request->professional_designation;
+                $patient->professional_address = $request->professional_address;
+                $patient->native_language = $request->native_language;
+                $patient->address_detail = $request->address_detail;
+                $patient->birth_date = $request->birth_date;
+                $patient->age = $request->age;
+                $patient->gender = $request->gender;
+                $patient->marital_status = $request->marital_status;
+                $patient->mobile_no_1 = $request->mobile_no_1;
+                $patient->mobile_no_2 = $request->mobile_no_2;
+                $patient->whatsapp_number = $request->whatsapp_number;
+                $patient->mobile_no_3 = $request->mobile_no_3;
+                $patient->save();
+                $currentVisit = new Patient_current_visit_detail();
+                $id = Patient::where('cr_no', $request->cr_no)->first('id');
 
-                $currentVisit->patient_id=$item->id;
+                    $currentVisit->patient_id = $id->id;
+
+                $currentVisit->current_visit = $request->current_visit;
+                $currentVisit->current_visit_date = $request->current_visit_date;
+                $currentVisit->patient_visit_no = $request->patient_visit_no;
+                $currentVisit->patient_visit_no_with_this_consultant = $request->patient_visit_no;
+                $currentVisit->fee_charged = $request->fee_charged;
+                $currentVisit->doctor_id = $request->doctor_id;
+                $currentVisit->appointment_number = $request->appointment_number;
+                $currentVisit->current_visit_note = $request->current_visit_note;
+                $currentVisit->referred = $request->referred;
+
+                $currentVisit->save();
+                $cvid = Patient_current_visit_detail::where('patient_id', $id->id)->where('current_visit_date', Carbon::today()->format('y-m-d'))->first();
+
+                    $nur = new Nurse_patient();
+                    $nur->patient_id = $id->id;
+                    $nur->current_visit_id = $cvid->id;
+                    $nur->save();
+
+            session()->flash('success', 'Data Inserted Successfully.');
+            return redirect(route('RPatientsList'));
+
             }
-            $currentVisit->current_visit=$request->current_visit;
-            $currentVisit->current_visit_date=$request->current_visit_date;
-            $currentVisit->patient_visit_no=$request->patient_visit_no;
-            $currentVisit->patient_current_visit_category=$request->patient_current_visit_category;
-            $currentVisit->patient_visit_no_with_this_consultant=$request->patient_visit_no;
-            $currentVisit->patient_current_visit=$request->patient_current_visit;
-            $currentVisit->current_visit_detail=$request->current_visit_detail;
-            $currentVisit->fee_charged=$request->fee_charged;
-            $currentVisit->doctor_id=$request->doctor_id;
-            $currentVisit->appointment_number=$request->appointment_number;
-            $currentVisit->current_visit_note=$request->current_visit_note;
-            $currentVisit->referred=$request->referred;
-            $currentVisit->save();
 
-
+         }catch (\Exception $e){
+            DB::rollBack();
+            $request->session()->flash('error', $e->getMessage());
+            return redirect(route('patientForm'));
         }
-        session()->flash('success', 'Data Inserted Successfully.');
-        return redirect(route('RPatientsList'));
     }
 
 

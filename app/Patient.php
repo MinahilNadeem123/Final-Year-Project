@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     protected $fillable=['first_name'];
+    protected $guarded = ['id'];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
     public function currentVisit(){
         return $this->hasMany(Patient_current_visit_detail::class);
     }
@@ -58,6 +66,9 @@ class Patient extends Model
     }
     public function appointments(){
         return $this->hasMany(Appointment::class);
+    }
+    public function ix_orders(){
+        return $this->hasMany(Ix_order::class);
     }
 
 }

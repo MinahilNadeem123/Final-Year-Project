@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>Derma Form</title>
-</head>
-<body style="background-color: rgb(224, 224, 224);">
-@include('users.doctors.headerdoc')
-<div class="container">
+<div class="modal fade" id="modalDermaExam" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Derma Exam Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
     <form  class="row g-3" style="line-break: anywhere;">
         <h3 style="text-align: center;">Derma Form</h3>
         <div class="form-check">
             <label class="form-check-label" for="Hypopigmentations">Hypopigmentations</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <input class="form-check-input" type="checkbox" value="" id="Hypopigmentations">
+            <input class="form-check-input" type="checkbox" value="Hypopigmentation Present" id="Hypopigmentations">
 
         </div>
         <div class="col-6">
@@ -31,7 +29,7 @@
             <label class="form-check-label" for="Hyperpigmentations">
                 Hyperpigmentations
             </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <input class="form-check-input" type="checkbox" value="" id="Hyperpigmentations">
+            <input class="form-check-input" type="checkbox" value="Hyperpigmentation Present" id="Hyperpigmentations">
         </div>
         <div class="col-6">
             <label for="HyperpigmentationDetails" class="form-label">HyperpigmentationDetails</label>
@@ -46,7 +44,7 @@
         <div class="form-check">
             <label class="form-check-label" for="Bruises">
                 Bruises </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <input class="form-check-input" type="checkbox" value="" id="Bruises" placeholder="">
+            <input class="form-check-input" type="checkbox" value="Bruises Present" id="Bruises" placeholder="">
         </div>
         <div class="col-6">
             <label for="BruisesDetails" class="form-label">BruisesDetails</label>
@@ -63,10 +61,13 @@
             </label>
             <input type="text" class="form-control" id="SkinOthers" placeholder="">
         </div>
-        <div class="col-12 mb-5 mx-lg-auto" style="align-self: center;">
-            <button type="submit" class="btn btn-success btn-lg" style="margin-left: 47%;">Submit</button>
-        </div>
     </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="dermaExam1()" data-dismiss="modal">Copy Summary and Close</button>
+            </div>
+
+        </div>
+    </div>
 </div>
-</body>
-</html>

@@ -21,7 +21,9 @@ class LapReport extends Model
     public function doctor(){
         return $this->belongsTo(User::class);
     }
-
+    public function lapReports(){
+        return$this->hasMany(LapReport::class);
+    }
     public function template(){
         return $this->belongsTo(LapTemplate::class);
     }

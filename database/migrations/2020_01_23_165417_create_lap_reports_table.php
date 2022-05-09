@@ -19,7 +19,7 @@ class CreateLapReportsTable extends Migration
             $table->time('time');
             $table->integer('patient_id');
             $table->integer('doctor_id');
-            $table->integer('template_id');
+            $table->foreignId('ix_orders_id')->references('id')->on('ix_orders')->constrained();
             $table->text('report');
             $table->timestamps();
         });

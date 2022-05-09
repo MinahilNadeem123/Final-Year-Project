@@ -17,7 +17,6 @@ class CreatePatientCurrentVisitDetailsTable extends Migration
             $table->id();
             $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
-            $table->string('patient_no')->nullable();
             $table->string('current_visit');
             $table->string('current_visit_date');
             $table->string('patient_visit_no');

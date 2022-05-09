@@ -1,46 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>Resp Exam Form</title>
-</head>
-<body style="background-color: rgb(224, 224, 224);">
-@include('users.doctors.headerdoc')
-<div class="container">
+<div class="modal fade" id="modalRespExam" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Resp Exam Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
     <form  class="row g-3" style="line-break: anywhere;">
         <h3 style="text-align: center;">Resp Exam Form</h3>
-        <div class="col-3">
-            <label for="ID" class="form-label">ID</label>
-            <input type="text" class="form-control" id="ID" placeholder="">
-        </div>
-        <div class="col-3">
-            <label for="PatientNo" class="form-label">Patient No</label>
-            <input type="text" class="form-control" id="PatientNo" placeholder="">
-        </div>
-
-        <div class="col-3">
-            <label for="VisitNumber" class="form-label">Visit Number</label>
-            <input type="text" class="form-control" id="VisitNumber" placeholder="">
-        </div>
-        <div class="col-3">
-            <label for="MRN" class="form-label">MRN
-            </label>
-            <input type="text" class="form-control" id="MRN" placeholder="">
-        </div>
-
-        <div class="col-6">
-            <label for="PatientName" class="form-label">Patient Name</label>
-            <input type="text" class="form-control" id="PatientName" placeholder="">
-        </div>
-        <div class="col-6">
-            <label for="DateOfVisit" class="form-label"> Date Of Visit
-            </label>
-            <input type="text" class="form-control" id="DateOfVisit" placeholder="">
-        </div>
 
         <div class="col-6">
             <label for="InspectionSummary" class="form-label">Inspection Summary </label>
@@ -56,8 +27,8 @@
             <input type="text" class="form-control" id="RespiratoryPattern" placeholder="">
         </div>
         <div class="col-6">
-            <label for="ShapeOfChest" class="form-label">Shape Of Chest </label>
-            <input type="text" class="form-control" id="ShapeOfChest" placeholder="">
+            <label for="ShapeOfChest1" class="form-label">Shape Of Chest </label>
+            <input type="text" class="form-control" id="ShapeOfChest1" placeholder="">
         </div>
 
         <div class="col-6">
@@ -70,9 +41,9 @@
         </div>
 
         <div class="col-6">
-            <label for="VisibleVeins" class="form-label">Visible Veins
+            <label for="VisibleVeins1" class="form-label">Visible Veins
             </label>
-            <input type="text" class="form-control" id="VisibleVeins" placeholder="">
+            <input type="text" class="form-control" id="VisibleVeins1" placeholder="">
         </div>
 
         <div class="col-6">
@@ -124,9 +95,9 @@
         </div>
 
         <div class="col-6">
-            <label for="ChestTenderness" class="form-label">Chest Tenderness
+            <label for="ChestTenderness1" class="form-label">Chest Tenderness
             </label>
-            <input type="text" class="form-control" id="ChestTenderness" placeholder="">
+            <input type="text" class="form-control" id="ChestTenderness1" placeholder="">
         </div>
         <div class="col-6">
             <label for="BoneTenderness" class="form-label">Bone Tenderness</label>
@@ -138,8 +109,8 @@
             <input type="text" class="form-control" id="TracheaPosition" placeholder="">
         </div>
         <div class="col-6">
-            <label for="ApexBeatPosition" class="form-label">Apex Beat Position</label>
-            <input type="text" class="form-control" id="ApexBeatPosition" placeholder="">
+            <label for="ApexBeatPosition1" class="form-label">Apex Beat Position</label>
+            <input type="text" class="form-control" id="ApexBeatPosition1" placeholder="">
         </div>
 
         <div class="col-6">
@@ -276,6 +247,10 @@
             <label for="TrachealTug" class="form-label">Tracheal Tug</label>
             <input type="text" class="form-control" id="TrachealTug" placeholder="">
         </div>
+        <div class="col-6">
+            <label for="ProximalMyopathy" class="form-label">Proximal Myopathy</label>
+            <input type="text" class="form-control" id="ProximalMyopathy" placeholder="">
+        </div>
 
         <div class="col-6">
             <label for="ForcedExpiratoryTimeInSeconds" class="form-label">Forced Expiratory Time In Seconds</label>
@@ -287,10 +262,7 @@
             <input type="text" class="form-control" id="HypertrophicPulmonaryOsteoarthropathy" placeholder="">
         </div>
 
-        <div class="col-6">
-            <label for="ProximalMyopathy" class="form-label">Proximal Myopathy</label>
-            <input type="text" class="form-control" id="ProximalMyopathy" placeholder="">
-        </div>
+
 
         <div class="col-6">
             <label for="HornerSyndrome" class="form-label">Horner Syndrome</label>
@@ -333,15 +305,20 @@
         </div>
 
         <div class="col-6">
-            <label for="ChestTubePlacement" class="form-label">Chest Tube Placement</label>
+            <label for="ChestTubePlacement"  class="form-label">Chest Tube Placement</label>
             <input type="text" class="form-control" id="ChestTubePlacement" placeholder="">
         </div>
 
 
-        <div class="col-12 mb-5 mx-lg-auto" style="align-self: center;">
-            <button type="submit" class="btn btn-success btn-lg" style="margin-left: 47%;">Submit</button>
-        </div>
+
     </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="respExam1()" data-dismiss="modal">Save and Close</button>
+            </div>
+
+        </div>
+    </div>
+
 </div>
-</body>
-</html>
