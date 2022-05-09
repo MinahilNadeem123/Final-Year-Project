@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Login Page</title>
     <!--Made with love by Mutiullah Samim -->
