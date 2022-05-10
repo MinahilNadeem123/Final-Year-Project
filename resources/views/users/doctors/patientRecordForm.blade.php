@@ -52,20 +52,21 @@
                     <div class="row">
                         <div class="col-md-4" >
                             <h1 style="color:black;text-align: center;">{{$doctor_data->first_name}}</h1>
-                            <h4 style="color:black;text-align: center;">{{$doctor_data->medical_degree}},{{$doctor_data->educational_qualification}}</h4>
+                            <h4 style="color:black;text-align: center;">{{$doctor_data->medical_degree}} {{$doctor_data->educational_qualification}}</h4>
                             <h6 style="color:black;text-align: center;">{{$doctor_data->biography}}</h6>
                         </div>
-                        <div class="col-md-4" style="margin-top:0px">
+                        <div class="col-md-4" style="margin-top:0">
                             <img src="{{asset('adminpanel/assets/media/logo.png')}}" style="height:100px;text-align: center; display: block;margin-top:0px; margin-left: auto; margin-right: auto;width: 50%;"/>
                             <h2 style="color:black;text-align: center;">{{$doctor_data->mobile}}</h2>
                         </div>
                         <div class="col-md-4">
-                            <h1 style="color:black;text-align: center;"> {{Stichoza\GoogleTranslate\GoogleTranslate::trans($doctor_data->first_name,'ur')}}</h1>
+
+                            <h1 style="color:black;text-align: center;"> {{$doc_name}}</h1>
                             <h4  style="color:black;text-align: center;">
-                                {{Stichoza\GoogleTranslate\GoogleTranslate::trans($doctor_data->medical_degree,'ur')}}
-                                {{Stichoza\GoogleTranslate\GoogleTranslate::trans($doctor_data->educational_qualification,'ur')}}
+                                {{$doc_deg}}
+                                {{$doc_edu}}
                             </h4>
-                            <h6  style="color:black;text-align: center;"> {{Stichoza\GoogleTranslate\GoogleTranslate::trans($doctor_data->biography,'ur')}}</h6>
+                            <h6  style="color:black;text-align: center;"> {{$doc_bio}}</h6>
                         </div>
 
                     </div>

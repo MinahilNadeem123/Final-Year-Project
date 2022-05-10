@@ -30,16 +30,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use mysql_xdevapi\Exception;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class DoctorController extends Controller
 {
     public function doctorDashboard(Request $request)
-    {
-
-
-
-
-            $data = Doctor_dashboard::with('patient','patient.currentVisit')->where('doctor_id', Auth::id())
+    {            $data = Doctor_dashboard::with('patient','patient.currentVisit')->where('doctor_id', Auth::id())
                 ->whereDate('created_at',Carbon::today()->toDateString())->get();
 
             if($data->isEmpty()){
@@ -124,6 +120,9 @@ class DoctorController extends Controller
         return view('users.doctors.viewReport',['data'=>$data]);
    }
 
+    /**
+     * @throws \ErrorException
+     */
     public function accessPatient($id)
     {
         $data=Patient::find($id);
@@ -134,6 +133,28 @@ class DoctorController extends Controller
        $totalVisits=Patient_current_visit_detail::where('patient_id',$id)->where('doctor_id',Auth::id())->count();
        $doctor=User::where('type','doctor')->get();
       $doctor_data=User::where('id',Auth::id())->first();
+       $doc_name=GoogleTranslate::trans($doctor_data->first_name,'ur');
+       if($doctor_data->medical_degree != null){
+           $doc_deg=GoogleTranslate::trans($doctor_data->medical_degree,'ur');
+       }
+       else{
+           $doc_deg=null;
+       }
+        if($doctor_data->educational_qualification != null){
+            $doc_edu=GoogleTranslate::trans($doctor_data->educational_qualification,'ur');
+        }
+        else{
+            $doc_edu=null;
+        }
+        if($doctor_data->biography != null){
+            $doc_bio=GoogleTranslate::trans($doctor_data->biography,'ur');
+        }
+         else{
+        $doc_bio=null;
+        }
+
+
+
        $approach=Approach::all();
        $protocols=Protocol::all();
        $generalInstruction=GeneralInstructionPanel::all();
@@ -143,7 +164,8 @@ class DoctorController extends Controller
         return view('users/doctors/patientRecordForm',['data'=>$data,'currentVisit'=>$currentVisit,'nursing'=>$nursing_parameters,
             'total'=>$totalVisits,'doctors'=>$doctor,'approaches'=>$approach,
             'generalInstruction'=>$generalInstruction,'investigations'=>$investigations,'drugs'=>$drugs,'protocols'=>$protocols,
-            'previous_visits'=>$allVisit,'doctor_data'=>$doctor_data]);
+            'previous_visits'=>$allVisit,'doctor_data'=>$doctor_data,'doc_name'=>$doc_name,'doc_deg'=>$doc_deg
+        ,'doc_edu'=>$doc_edu,'doc_bio'=>$doc_bio]);
 
     }
 

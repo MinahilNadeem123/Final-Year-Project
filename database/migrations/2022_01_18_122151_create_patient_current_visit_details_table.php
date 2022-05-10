@@ -21,12 +21,8 @@ class CreatePatientCurrentVisitDetailsTable extends Migration
             $table->string('current_visit_date');
             $table->string('patient_visit_no');
             $table->string('patient_visit_no_with_this_consultant');
-            $table->string('patient_current_visit_category');
-            $table->string('Patient_current_visit');
-            $table->string('current_visit_detail');
             $table->string('fee_charged');
             $table->string('appointment_number');
-            $table->string('appointment_taken_prior');
             $table->string('current_visit_note');
             $table->string('referred')->nullable();
             $table->timestamps();

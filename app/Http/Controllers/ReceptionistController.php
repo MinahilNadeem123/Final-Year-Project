@@ -48,10 +48,17 @@ class ReceptionistController extends Controller
     }
 
     public function patientForm(){
+
         $doctor=user::where('type','doctor')->get();
         $reference=Reference::all();
         $patient=Patient::orderBy("cr_no", "desc")->first("cr_no");
-        $patient_cr=++$patient->cr_no ;
+        if($patient== null){
+            $patient_cr=1;
+        }
+        else{
+            $patient_cr=++$patient->cr_no ;
+        }
+
         return view('users/receptionists/patientForm', ['doctors' => $doctor,'cr'=>$patient_cr,'reference'=>$reference]);
     }
 

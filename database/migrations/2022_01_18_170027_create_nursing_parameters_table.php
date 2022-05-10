@@ -17,7 +17,7 @@ class CreateNursingParametersTable extends Migration
             $table->id();
             $table->foreignId('patient_id')->references('id')->on('patients')
                 ->constrained();
-            $table->string('arrival_date_at_nursing_station');
+
             $table->string('pulse_rate');
             $table->string('systolic_bp_right_arm');
             $table->string('diastolic_bp_right_arm');

@@ -59,7 +59,7 @@
             <div class="card-footer">
 
                 <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
+                    <a href="#">Register</a>
                 </div>
             </div>
         </div>

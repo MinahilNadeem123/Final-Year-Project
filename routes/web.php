@@ -26,7 +26,7 @@ Route::get('/','Auth\LoginController@loginPage');
 
 
 
-Route::middleware([CustomAuth::class])->group(function () {
+
 
 //admin routes
 
@@ -178,4 +178,3 @@ Route::get('uploadReports/{id}','LaboratoristController@uploadReports')->name('u
 Route::post('updateTest','LaboratoristController@updateTest')->name('updateTest');
 Route::post('patientReports','LaboratoristController@patientReports')->name('patientReports');
 Route::get('deleteTest/{id}','LaboratoristController@deleteTest')->name('deleteTest');
-});

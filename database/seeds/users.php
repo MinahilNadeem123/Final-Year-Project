@@ -22,6 +22,8 @@ class users extends Seeder
                 'password'=>\Illuminate\Support\Facades\Hash::make('1234'),'type'=>'doctor'],
             [ 'first_name'=>'mina','last_name'=>'nade','email'=>'nurse@gmail.com',
                 'password'=>\Illuminate\Support\Facades\Hash::make('1234'),'type'=>'nurse'],
+            [ 'first_name'=>'mina','last_name'=>'nade','email'=>'laboratorist@gmail.com',
+                'password'=>\Illuminate\Support\Facades\Hash::make('1234'),'type'=>'laboratorist'],
         ];
 
         foreach ($users as $user) {
